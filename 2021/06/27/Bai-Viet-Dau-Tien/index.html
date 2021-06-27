@@ -111,68 +111,6 @@
             <div class="container">
     
     
-        <div class="post-toc">
-    <div class="tocbot-list">
-    </div>
-    <div class="tocbot-list-menu">
-        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
-        <a onclick="go_top()">Back to top</a>
-        <a onclick="go_bottom()">Go to bottom</a>
-    </div>
-</div>
-
-<script>
-    document.ready(
-        function () {
-            tocbot.init({
-                tocSelector: '.tocbot-list',
-                contentSelector: '.post-content',
-                headingSelector: 'h1, h2, h3, h4, h5',
-                collapseDepth: 1,
-                orderedList: false,
-                scrollSmooth: true,
-            })
-        }
-    )
-
-    function expand_toc() {
-        var b = document.querySelector(".tocbot-toc-expand");
-        tocbot.init({
-            tocSelector: '.tocbot-list',
-            contentSelector: '.post-content',
-            headingSelector: 'h1, h2, h3, h4, h5',
-            collapseDepth: 6,
-            orderedList: false,
-            scrollSmooth: true,
-        });
-        b.setAttribute("onclick", "collapse_toc()");
-        b.innerHTML = "Collapse all"
-    }
-
-    function collapse_toc() {
-        var b = document.querySelector(".tocbot-toc-expand");
-        tocbot.init({
-            tocSelector: '.tocbot-list',
-            contentSelector: '.post-content',
-            headingSelector: 'h1, h2, h3, h4, h5',
-            collapseDepth: 1,
-            orderedList: false,
-            scrollSmooth: true,
-        });
-        b.setAttribute("onclick", "expand_toc()");
-        b.innerHTML = "Expand all"
-    }
-
-    function go_top() {
-        window.scrollTo(0, 0);
-    }
-
-    function go_bottom() {
-        window.scrollTo(0, document.body.scrollHeight);
-    }
-
-</script>
-    
 
     
     <article class="post-wrap">
@@ -195,9 +133,18 @@
         </header>
 
         <div class="post-content">
-            <h2 id="Hanh-trinh-van-dam-bat-dau-bang-nhung-buoc-chan-dau-tien"><a href="#Hanh-trinh-van-dam-bat-dau-bang-nhung-buoc-chan-dau-tien" class="headerlink" title="Hành trình vạn dặm bắt đầu bằng những bước chân đầu tiên!"></a>Hành trình vạn dặm bắt đầu bằng những bước chân đầu tiên!</h2><p>Xin chào các bạn, mình là Khang và đây là bài viết đầu tiên trên blog của mình. Thì tại sao mình viết blog này? Đó là một câu chuyện dài mà nếu bạn đã hỏi thì mình xin trả lời cho bạn nghe.<br><br> Vào một buổi tối cách đây 6 năm trước, khi mình tình cờ được một người anh giới thiệu cho bôj phim “Who I Am” mình bị ấn tượng cực mạnh với nhân vật X - là một hacker mắc bệnh tâm thần, lúc đấy hình ảnh X thật sự rất ngầu và mình quyết định sẽ trở thành hacker (trước đó mình tưởng máy tính chỉ có thể giải Violympic toán với chơi 3Q của hành của VNG thôi chứ). thế rồi mình bắt đầu mò mẫn lên fb, vào các group, nhóm chat chuyên dành cho hacker, cứ nhóm nào có chữ hacker là mình vào. Sau một thời gian nằm vùng học lỏm được ít từ lóng trong giới hacker mình lên mạng tải các hình ảnh của Anonymous về cứ hình nào có đeo mặt nạ của nhóm Anonymous là mình tải về. Sau một thời gian không ngừng học hỏi mình đã nắm được 1 số kỹ thuật như hack like, share, follow… RIP, UNLOCK tài khoản lúc đó mình đã nghĩ là nắm được thiên cơ, ít thời gian sau được mấy người bạn chỉ cho DDOS, DEFACE,  SQL Ẹnoy… thì mình đã nghĩ có thể bình thiên hạ. Cứ thế sống cho ảo mộng hai năm mình làm đủ trò con bò trên internet miễn là nó ngầu thế là mình làm. Đến năm 12 mình tạm dừng tất cả để lo cho việc ôn thi đại học, xong khi thi xong mình có thời gian nghỉ ngơi và nhìn nhận lại. Rồi mình nhận thấy làm hacker mà không biết viết code thì mình mãi mãi chỉ là thằng nhóc đi xài tool người khác viết thôi và thế là mình nghỉ mấy trò trên fb (Mặc dù hồi đó làm mấy trò đó cũng được kha kha tiền). Và thế là mình lên W3school để học những dòng Html đầu tiên, lên freetust.net để học những dòng PHP đầu tiên. Tuy nhiên việc không đủ điểm vào ngành CNTT đã buộc mình phải chọn vào ngành Tự Động Hóa, mình đã nghĩ không sao cả, mình vẫn chăm học hỏi từng ngày rồi lập blog viết bài như toidicodedao, năm 3 đi thực tập cho 1 công ty lớn, rất được mọi người quý mếm vì có kiến thức lại khiêm tốn chăm chỉ thật thà, rồi năm thứ 5 blog mình nổi tiếng được báo đài nhắc tới liên tục, lương bây giờ cũng gần 2000$. Mọi thứ tưởng chừng như đã viên vãn thì mình chợt giật mình nhận ra là mình đang viết bài và mấy cái vừa nãy là mo mình tưởng tượng ra mà thôi, còn thực tế sau 4 năm dh thì mình chẳng có thành tích gì nổi bật cả, mình vẫn học code nhưng đó là thỉnh thoảng, vì không có áp lực nên thỉnh thoảng có hứng thì học không thì thôi, chính vì thế mà sau 4 năm nhìn lại kiến thức của mình cách vạch xuất phát bằng với tổng điểm hàng năm trên ĐH, tuy không có nợ môn nhưng điểm chỉ đủ để qua môn. Hồi đó nhìn vào mớ chương trình dày cộm thì chỉ biết trách tại sao phải học mấy cái toán cao cấp, xác suất thống kê lằng nhằng mà mình chả bao giờ phải dùng đến, tại sao k dạy cho mình các ngôn ngữ lập trình đang hot, không dạy mấy công nghệ mới mà doanh nghiệp họ cần… Chính vì thế mà mình k chịu học. Hậu quả đầu tiên là điểm thấp lè tè, nhưng hậu quả đáng sợ nhất mà bây giờ mình đang phải trả giá đó là mò mẫm học lại toán cao cấp, xác suất thống kê để phục vụ cho việc học ML,DL. <br></p>
-<p> Quả báo tới nhanh hơn mình nghĩ, nhưng mình coi đó là một măy mắn bởi vì nếu nó đến chậm thêm vài 3 năm nữa thì mình không chắc là còn đủ khả năng để đọc hiểu lại đống kiến thức khó nhằn đấy! <br></p>
-<p>Trong đợt nghỉ dịch này, nhờ được 1 người bạn giới thiệu về mảng AI, mình bắt đầu tìm hiểu, thực ra là mình có tìm hiểu cách đây 1-2 năm rồi nhưng vì thấy nó nặng về lý thuyết về tính toán quá nên mình đã từ bỏ, nhưng lần này nhờ có sự giới thiệu và hỗ trợ nhiệt tình của người bạn này mà mình quyết tâm tìm hiểu kỹ xem sao. Những ngày đầu kiểu như mình bị chết ngạt trong mớ kiến thức của nó ấy, nào là tên viết tắt các mô hình, các công thức toán đã quên béng từ lâu phải dò lại đọc từng chữ… học ngôn ngữ Python. Sau 1 tháng tìm hiểu về Numpy, Pandas, Mạtplotlib kết hợp với việc đọc các bài viết về chủ đề AI trên mạng, machine learning cơ bản của anh Vũ Hữu Tiệp, xem và làm theo các tutorial code project cụ thể trên youtube mình bắt đầu thấy thích mà cảm thấy mình có thể theo được, vấn đề bây giờ là thêm chút thời gian và 1 nơi thực tập để nhận được sự hướng dẫn cụ thể cũng như trau dồi kiến thức hơn. Thế mà mình search 1 vòng trên mạng, tìm mãi tìm mãi thì mới thấy Ftech đang tuyển intern, mình viết mail và gởi cái Cv (mình viết trước đó để apply vào vị trí làm web nhưng tạch). Ít ngày sau mình nhận được phản hồi của hị HR, mình được chi tư vấn cho về quy trình phỏng vấn, thời gian bắt đầu khi nào… Mình rất hồi hộp và phấn khích vì đó như 1 cơ hội để con đường mình tới AI bớt mông lung hơn (Rút kinh nghiệm lần trước là học mà không có mục tiêu thì rất dễ từ bỏ). Vậy là nguyên 1 tháng sau mình lao đầu vào tìm hiểu, đọc sách, code thử push code lên github, viết README mô tả project… tới hôm nay là cuối tháng, những kiến thức mình học cũng được kha khá và mình cần thêm 1 nơi ngoài sổ để ghi chép lại những thứ mình đã học để tiện xem lại. Hơn nữa mình cũng muốn rèn luyện kỹ năng viết lách cho bản thân. Chính vì thế mình đã dành mấy 1 ngày để viết blog này. Blog sẽ chủ yếu viết và chia sẻ về kỹ thuật lập trình, về công nghệ mới cũng có thể là tâm lý học, chiến tranh, hài nhảm… tất cả những thức mà mình nghĩ là nó hay ho để đưa lên đây. Hy vọng nó sẽ mang lại chút kiến thức cho những người vô tình lướt qua, hoặc ít nhất cũng có thể giúp bạn thư giản dãi trí.  </p>
+            <p>Xin chào các bạn, mình là Khang và đây là bài viết đầu tiên trên blog của mình. Thì tại sao mình viết blog này? Thì đó lại là một câu chuyện dài mà nếu bạn đã cất công hỏi hỏi thì mình cũng xin trả lời cho bạn nghe.</p>
+<p>Câu chuyện bắt đầu vào một buổi tối cách đây 6 năm trước, khi mình tình cờ xem được một bộ phim <a target="_blank" rel="noopener" href="https://www.phimmoi123.com/tag/who-am-i">Who Am I</a>, mình bị ấn tượng cực mạnh với nhân vật chính Benjamin - vốn là một cậu bé nhút nhát thiếu thốn tình cảm của cha mẹ. Cậu sống với bà nội và làm bạn với máy tính từ năm 14 tuổi. Ngoài đời nhút nhát nhưng trên internet, Benjamin là một hacker tài năng. Lúc đấy hình ảnh Benjamin và những pha hack cùng nhóm CLAY của anh ấy thật sự rất ngầu.</p>
+<p><img src="https://i.imgur.com/1IRqinf.jpg" alt="alt"></p>
+<p>Và giống như mọi đứa trẻ khác hồi nhỏ xem phim chưởng thì ước mơ thành cao thủ võ lâm, nay lớn thêm tí xem <em>Who Am I</em> thì lại muốn trở thành <strong>hacker</strong> (trước đó mình tưởng máy tính chỉ có thể giải Violympic toán với chơi 3Q của hành của VNG thôi chứ). Thế rồi mình bắt đầu mò mẫn trên facebook, vào các group, nhóm chat chuyên dành cho hacker, cứ nhóm nào có chữ hacker là mình xin vào. Sau một thời gian nằm vùng học lỏm được ít từ lóng trong giới hacker mình lên mạng tải các hình ảnh của Anonymous về cứ hình nào có đeo mặt nạ của nhóm Anonymous là mình tải về chất đầy máy. Sau một thời gian không ngừng học hỏi mình đã nắm được một số trò như hack like, share, follow… Rip, Unlock tài khoản facebook, lúc đó mình đã nghĩ nắm được thiên cơ, ít thời gian sau học được thêm <em>Ddos</em>, <em>Deface</em>, <em>Sql injection</em>  thì mình đã nghĩ… có thể bình thiên hạ.</p>
+<p>Cứ thế sống trong ảo mộng hai năm, làm đủ trò con bò trên internet miễn là mình nghĩ nó ngầu thế là mình làm. Đến năm 12 mình tạm dừng tất cả để lo cho việc ôn thi đại học, đến khi thi xong mình có thời gian nghỉ ngơi và nhìn nhận lại. Rồi mình nhận thấy làm hacker mà không biết viết code thì mãi mãi chỉ là thằng nhóc đi xài tool người khác viết thôi và thế là mình nghỉ mấy trò trên facebook (Mặc dù hồi đó làm mấy trò đó cũng giúp mình được kha kha tiền tiêu). Và thế là mình lên W3School để học những dòng HTML đầu tiên, lên freetust.net để học những dòng PHP đầu tiên.</p>
+<p><img src="https://i.imgur.com/XtVySrH.jpg" alt="alt"></p>
+<p>Tuy nhiên việc không đủ điểm vào ngành CNTT đã buộc mình phải chọn vào ngành Tự Động Hóa, mình đã nghĩ không sao cả, mình vẫn chăm chỉ học hỏi từng ngày rồi lập blog viết bài như toidicodedao, năm 3 đi thực tập cho 1 công ty lớn, rất được mọi người quý mến vì có kiến thức lại khiêm tốn thật thà dũng cảm đúng như lời Bác Hồ dạy. rồi năm thứ 5 blog mình nổi tiếng được báo đài nhắc tới liên tục, là hình mẫu con nhà người ta, lương bây giờ cũng gần năm con số rồi.</p>
+<p>Mọi thứ tưởng chừng như đã viên vãn thì chợt giật mình nhận ra là mình đang viết bài chém gió còn mấy cái vừa nãy là ảo giác do mấy đêm liền mình dùng cafein mà thôi. Haizz…</p>
+<p>Còn thực tế sau 4 năm Đại Học thì mình chẳng có thành tích gì nổi bật, mình vẫn học code nhưng đó chỉ là thỉnh thoảng, mà như mọi người biết đấy <strong>thỉnh thoảng</strong> thì khó mà mang lại <strong>thành công</strong> , chính vì thế mà sau 4 năm nhìn lại kiến thức, mình thấy nó cách vạch xuất phát hình như ngang bằng với số điểm tích lũy hàng năm trên ĐH (tuy không có nợ môn nhưng điểm chỉ đủ để qua). Hồi đó nhìn vào mớ chương trình dày cộm thì chỉ biết trách tại sao phải học mấy cái môn toán cao cấp, xác suất thống kê lằng nhằng mà mình nghĩ là chả bao giờ phải dùng đến, tại sao không dạy cho sinh viên các ngôn ngữ lập trình đang hot, không dạy mấy công nghệ mới mà doanh nghiệp họ yêu cầu… Chính vì thế nên mình không học.</p>
+<p>Hậu quả đầu tiên là điểm thấp lè tè, nhưng hậu quả đáng sợ nhất mà bây giờ mình đang phải trả giá đó là phải mò mẫm học lại toán cao cấp, xác suất thống kê để phục vụ cho việc học Machine Learning, Deep Learning. Quả báo tới nhanh hơn mình nghĩ, nhưng nếu nhìn nhận theo hướng tích cực hơn thì nó là lời cảnh báo để cho mình biết mình đang hổng kiến thức ở đâu, giả nó đến chậm thêm vài 3 năm nữa thì mình không chắc là còn đủ khả năng để đọc hiểu lại đống kiến thức khó nhằn đấy không nữa! 😛 </p>
+<p>Trong đợt nghỉ dịch này, nhờ được 1 người bạn giới thiệu về mảng AI, mình bắt đầu tìm hiểu, thực ra là mình có tìm hiểu cách đây 1-2 năm rồi nhưng vì thấy nó nặng về lý thuyết và tính toán quá nên mình đã từ bỏ vì nghĩ bản thân không đủ khả năng, nhưng lần này nhờ có sự giới thiệu và hỗ trợ nhiệt tình của người bạn này mà mình quyết tâm tìm hiểu kỹ xem sao. Những ngày đầu kiểu như mình bị chết ngạt trong mớ kiến thức của nó ấy, nào là tên viết tắt các mô hình, các công thức toán đã quên béng từ lâu phải dò lại đọc từng chữ… học Python. Sau 1 tháng tìm hiểu về Numpy, Pandas, Mạtplotlib kết hợp với việc đọc các bài viết về chủ đề AI trên mạng, machine learning cơ bản của anh Vũ Hữu Tiệp, xem và làm theo các tutorial code project cụ thể trên youtube mình bắt đầu thấy thích mà cảm thấy mình có thể theo được, vấn đề bây giờ là thêm chút thời gian và 1 nơi thực tập để nhận được sự hướng dẫn cụ thể cũng như trau dồi kiến thức hơn. Thế mà mình search 1 vòng trên mạng, tìm mãi tìm mãi thì mới thấy cty Ftech đang tuyển intern, trên mẩu tuyển dụng ghi địa chỉ là ở Hà Nội nhưng vì thấy có cơ sở ở Đà Nẵng nên sáng hôm sau mình mạnh dạn viết mail, đích kèm đại cái CV (mình viết trước đó để apply vào vị trí thực tập sinh  làm web nhưng mà tạch 😂). Ít ngày sau mình nhận được phản hồi của chị HR, mình được chi tư vấn cho về quy trình phỏng vấn, thời gian bắt đầu khi nào, định hướng sau 2 tháng thực tập sẽ ra sao… Mình rất hồi hộp và phấn khích vì đó như 1 cơ hội để con đường mình tới AI bớt mông lung hơn (Rút kinh nghiệm lần trước là học mà không có mục tiêu thì rất dễ từ bỏ). Vậy là nguyên 1 tháng sau mình lao đầu vào tìm hiểu, đọc sách, code thử push code lên github, viết README mô tả… tới hôm nay là cuối tháng, những kiến thức mình học cũng được kha khá và mình cần thêm 1 nơi ngoài sổ để ghi chép lại những thứ đã học để tiện xem lại. Hơn nữa mình cũng muốn rèn luyện kỹ năng viết lách cho bản thân. <strong>Chính vì thế mình đã dành mấy ngày để viết ra blog này.</strong> </p>
+<p>Blog sẽ chủ yếu viết và chia sẻ về kỹ thuật lập trình, cách fix bug trong quá trình code mình gặp phải, các công nghệ mới, cũng có thể là tâm lý học, hài nhảm hay một ngày nhạt nhẽo đặc biệt nào đó trong một chuỗi ngày dài nhạt nhẽo của mình… tất cả những thứ mà mình nghĩ là nó hay ho để đưa lên đây. Hy vọng nó sẽ mang lại chút giá trị, hoặc giải quyết được vấn đề bạn đang gặp phải, hoặc ít nhất cũng có thể giúp bạn thư giản giải trí sau một ngày làm việc vất vả. Cảm ơn các bạn đã kiên trì đọc tới đây. Hãy đón chờ các bài viết mới trong tương lai của mình nhé!</p>
 
         </div>
 
