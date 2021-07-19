@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Kudo Khang">
+
+
+    <meta name="subtitle" content="Share To Learn">
+
+
+    <meta name="description" content="Chia sẻ kiến thức lập trình, machine learning, computer vision...">
+
+
+    <meta name="keywords" content="AI MachineLearning DeepLearning Ml DL ComputerVison">
+
+
+<title>Top 25 Computer Project Ideas | Khaq&#39;s Blog</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Khaq&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Khaq&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">Top 25 Computer Project Ideas</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Kudo Khang</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">July 19, 2021&nbsp;&nbsp;15:24:27</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/Series-25-Computer-Vision-Project/">Series 25 Computer Vision Project</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <p>Như đã nói ở bài trước chúng ta đã biết thị giác máy tính (Computer Vision) là gì và những ứng dụng hết sức to lớn và thiết thực của nó trong đời sống. Ở bài viết này mình xin được giới thiệu với các bạn <strong>Top 25 Computer Vision Project Ideas</strong> được đưa ra bởi <a target="_blank" rel="noopener" href="https://data-flair.training/">Data-Flair</a></p>
+<p><em>Data Flair là một trang dạy code trực tuyến, với hàng trăm projects và ideas về Computer Vision, Machine Learning, Deep Learning, Data Science… các bạn có thể truy cập vào <a target="_blank" rel="noopener" href="https://data-flair.training/">Data-Flair</a> để đọc nhiều hơn</em></p>
+<p>Trước khi làm được các dự án này bạn phải có kiến thức cơ bản về xử lý ảnh trong thị giác máy tính, thư viện chính để làm việc là <a target="_blank" rel="noopener" href="https://opencv.org/">OpenCV</a>. 25 dự án này sẽ chia thành 3 mức độ: Beginner, Intermediate, Advanced. Dưới đây là miêu tả chi tiết cụ thể cho từng dự án.</p>
+<h2 id="Computer-Vision-Projects-for-Beginners"><a href="#Computer-Vision-Projects-for-Beginners" class="headerlink" title="Computer Vision Projects for Beginners"></a>Computer Vision Projects for Beginners</h2><h3 id="1-Edge-Detection"><a href="#1-Edge-Detection" class="headerlink" title="1. Edge Detection"></a>1. Edge Detection</h3><p><img src="https://d2h0cx97tjks2p.cloudfront.net/blogs/wp-content/uploads/sites/2/2020/01/computer-vision-project-edge-detection.jpg"></p>
+<p><strong>Idea</strong> - Dùng thư viện opencv để phát hiện cạnh của chiếc xe trong hình .</p>
+<h3 id="2-Photo-Sketching"><a href="#2-Photo-Sketching" class="headerlink" title="2. Photo Sketching"></a>2. Photo Sketching</h3><p><img src="https://d2h0cx97tjks2p.cloudfront.net/blogs/wp-content/uploads/sites/2/2020/01/photo-sketching.jpg"></p>
+<p><strong>Idea</strong> - Từ bức ảnh chân dung đầu vào chúng ta sẽ dùng opencv xử lý sao cho ảnh đầu ra là giống một bức tranh phác thảo bằng bút chì.</p>
+<h3 id="3-Detecting-Contours"><a href="#3-Detecting-Contours" class="headerlink" title="3. Detecting Contours"></a>3. Detecting Contours</h3><p><img src="https://d2h0cx97tjks2p.cloudfront.net/blogs/wp-content/uploads/sites/2/2020/01/detecting-contours.jpg"></p>
+<p><strong>Idea</strong> - Từ ảnh ban đầu chứa các hình như tam giác, lục giác, hình tròn viết chương trình nhận diện và khoanh vùng hiện tên chính xác từng hình đó.</p>
+<h4 id="4-Collage-Mosaic-Generator"><a href="#4-Collage-Mosaic-Generator" class="headerlink" title="4. Collage Mosaic Generator"></a>4. Collage Mosaic Generator</h4><p><img src="https://d2h0cx97tjks2p.cloudfront.net/blogs/wp-content/uploads/sites/2/2020/01/collage-mosaic-generator.jpg"></p>
+<p><strong>Idea</strong> -  Mosaic (ghép mảnh) là nghệ thuật sử dụng những mảnh nhỏ của vật liệu đặt lại với nhau để tạo ra một tổng thể thống nhất.</p>
+<p>Để có được một bức tranh lớn hơn rõ ràng bao gồm nhiều hình ảnh nhỏ, ta cần phải đặt hình ảnh đúng vị trí theo màu sắc trong hình ảnh lớn. Nhiệm vụ ở đây là chúng ta phải viết một chương trình tạo ra một bức tranh lớn được ghép bởi hàng trăm hình ảnh nhỏ bên trong</p>
+<h3 id="5-Panorama-Stitching"><a href="#5-Panorama-Stitching" class="headerlink" title="5. Panorama Stitching"></a>5. Panorama Stitching</h3><p><img src="https://images.viblo.asia/574a7635-3955-4dc6-9c8a-61d903691883.jpg"></p>
+<p><strong>Idea</strong> - Chắc hẳn chúng ta không lạ gì chế độ chụp toàn cảnh khi muốn chụp một góc ảnh rộng trên điện thoại thông minh, nhưng đã bao giờ chúng ta thử tìm hiểu xem nó hoạt động như thế nào chưa ?</p>
+<p>Nhiệm vụ ở đây của chúng ta là tìm hiểu xem cách thức hoạt động của nó và xây dựng một chương trình để thực hiện nó.</p>
+<h3 id="6-Object-Tracking-with-Camshift-Algorithm"><a href="#6-Object-Tracking-with-Camshift-Algorithm" class="headerlink" title="6. Object Tracking with Camshift Algorithm"></a>6. Object Tracking with Camshift Algorithm</h3><p><img src="https://opencv24-python-tutorials.readthedocs.io/en/latest/_images/camshift_result.jpg"></p>
+<p><strong>Idea</strong> - Object tracking (theo dõi đối thượng) là quá trình xác định vị trí của một đối tượng cụ thể nào đó trong ảnh.</p>
+<p>Thuật toán Camshift là một cách hiệu quả để theo dõi một đối tượng khi thích thước đối tượng thay đổi hoặc di chuyển.</p>
+<h3 id="7-Barcode-and-QR-Code-Scanner"><a href="#7-Barcode-and-QR-Code-Scanner" class="headerlink" title="7. Barcode and QR Code Scanner"></a>7. Barcode and QR Code Scanner</h3><p><img src="https://d2h0cx97tjks2p.cloudfront.net/blogs/wp-content/uploads/sites/2/2020/01/barcode-and-qr-code-scanner.jpg"></p>
+<p><strong>Idea</strong> - Ta có thể dễ dàng bắt gặp QR code hoặc Barcode trong cuộc sống hàng ngày, khi dùng điện thoại quét chúng ta sẽ nhận được thông tin từ code đó.</p>
+<p>Nhiệm vụ của chúng ta ở đây là xây dựng chương trình phát hiện QR code hoặc Barcode ở trong hình ảnh và giải mã dữ liệu được mã hóa.</p>
+<h3 id="8-Harry-Potter’s-Invisibility-Cloak"><a href="#8-Harry-Potter’s-Invisibility-Cloak" class="headerlink" title="8. Harry Potter’s Invisibility Cloak"></a>8. Harry Potter’s Invisibility Cloak</h3><p><img src="https://camo.githubusercontent.com/ddd9f7d2d37a8b4a71f45eaff991aef626581bb285bd1146b5f060a99329e6ad/68747470733a2f2f62616f6d6f696e68616e682e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031362f30312f616f2d74616e672d68696e682e6a7067"></p>
+<p><strong>Idea</strong> - Trong bộ phim harry potter, Harry sử dụng một chiếc áo choàng vô hình cho phép ánh sáng xuyên qua chúng. Bạn có thể thấy những gì đằng sau chiếc áo choàng tương tự như hình ảnh trên.</p>
+<p>Nhiệm vụ của chúng ta là xây dựng một ứng dụng tương tự như vậy nhận video từ webcam và xử lý theo thời gian thực.</p>
+<h3 id="9-Watermarking-Images-with-OpenCV"><a href="#9-Watermarking-Images-with-OpenCV" class="headerlink" title="9. Watermarking Images with OpenCV"></a>9. Watermarking Images with OpenCV</h3><p><img src="https://socprinting.net/wp-content/uploads/2020/03/Watermark-la-gi.jpg"></p>
+<p><strong>Idea</strong> - Watermark (hình mờ) là dấu hiệu nhận biết riêng như text, image, logo, khẩu hiệu, số điện thoại dưới dạng hình mờ…được chèn vào hình ảnh để nhằm đánh dấu chủ quyền khi thông tin được lan truyền và copy từ nơi này sang nơi khác.</p>
+<p>Việc này tuy đơn giản nhưng lại tốn rất nhiều thời gian nếu làm thủ công. Nhiệm vụ của chúng ta là xây dựng ứng dụng tự động công việc này.</p>
+<h2 id="Intermedicate-Computer-Vision-Projects"><a href="#Intermedicate-Computer-Vision-Projects" class="headerlink" title="Intermedicate Computer Vision Projects"></a>Intermedicate Computer Vision Projects</h2><h3 id="1-Face-Detection"><a href="#1-Face-Detection" class="headerlink" title="1. Face Detection"></a>1. Face Detection</h3><p><img src="https://d2h0cx97tjks2p.cloudfront.net/blogs/wp-content/uploads/sites/2/2020/01/computer-vision-project-face-detection.jpg"></p>
+<p><strong>Idea</strong> - Face Detection (nhận diện khuôn mặt) là một kỹ thuật tìm kiếm vị trí khuôn mặt người trong ảnh.</p>
+<p>Nhiệm vụ của chúng ta là xây dựng ứng dụng nhận diện và đánh dấu khuôn mặt người từ một ảnh đầu vào.</p>
+<h3 id="2-Blur-the-Face"><a href="#2-Blur-the-Face" class="headerlink" title="2. Blur the Face"></a>2. Blur the Face</h3><p><img src="https://d2h0cx97tjks2p.cloudfront.net/blogs/wp-content/uploads/sites/2/2020/01/blur-the-face.jpg"></p>
+<p><strong>Idea</strong> - Để giữ kín danh tính của ai đó trên video truyền thông, người ta sẽ làm mờ khuôn mặt của người đó. Với computer vision, chúng ta dễ dàng làm việc đó một cách nhanh chóng và tự động.</p>
+<p>Nhiệm vụ của chúng ta là xây dựng chương trình làm mờ khuôn mặt người trong video.</p>
+<h3 id="3-Image-Segmentation"><a href="#3-Image-Segmentation" class="headerlink" title="3. Image Segmentation"></a>3. Image Segmentation</h3><p><img src="https://d2h0cx97tjks2p.cloudfront.net/blogs/wp-content/uploads/sites/2/2020/01/computer-vision-image-segmentation.jpg"></p>
+<p><strong>Idea</strong> - Image segmentation (phân đoạn hình ảnh) là quá trình phân chia hình ảnh thành nhiều phân đoạn, nhận diện vật thể có trong bức ảnh đó từ đó giúp ta hiểu được ý nghĩa của bức ảnh.</p>
+<p>Image segmentation kiến thức khá rộng, ứng dụng của nó cũng rất nhiều. Trong bài này nhiệm vụ của chúng ta là từ bức ảnh như trên hãy xác định từng đối tượng có trong ảnh (như người, ô tô, biển báo…)</p>
+<h3 id="4-Cartoonifying-an-Image"><a href="#4-Cartoonifying-an-Image" class="headerlink" title="4. Cartoonifying an Image"></a>4. Cartoonifying an Image</h3><p><img src="https://d2h0cx97tjks2p.cloudfront.net/blogs/wp-content/uploads/sites/2/2020/01/cartoonifying-image.jpg"></p>
+<p><strong>Idea</strong> - Xây dựng ứng dụng cho phép tải hình ảnh lên sau đó bằng các phép biến đổi xử lý chúng ta sẽ làm cho ảnh giống như 1 hình ảnh trên phim hoạt hình.</p>
+<h3 id="5-Human-Counting-with-OpenCV"><a href="#5-Human-Counting-with-OpenCV" class="headerlink" title="5. Human Counting with OpenCV"></a>5. Human Counting with OpenCV</h3><p><img src="https://d2h0cx97tjks2p.cloudfront.net/blogs/wp-content/uploads/sites/2/2020/01/human-counting-with-opencv.jpg"></p>
+<p><strong>Idea</strong> - Đầu tiên chúng ta phải nhận diện được người trong hình ảnh sau đó đếm số lần xuất hiện. Ứng dụng này sẽ rất hữu ích cho việc theo dõi, kiểm soát lưu lượng người ra vào một cửa hàng hay người qua lại trên đường phố ở 1 khung giờ nhất định nào đó.</p>
+<h3 id="6-Mobile-Document-Scanner"><a href="#6-Mobile-Document-Scanner" class="headerlink" title="6. Mobile Document Scanner"></a>6. Mobile Document Scanner</h3><p><img src="https://i.ytimg.com/vi/ON_JubFRw8M/maxresdefault.jpg"></p>
+<p><strong>Idea</strong> - Ảnh tài liệu được chụp từ máy ảnh có thể chứa phông nền không liên quan hoặc góc chụp chưa tốt gây khó khăn cho người đọc. </p>
+<p>Bằng cách nhận diện các cạnh, góc của tài liệu và các phép biến đổi, nhiệm vụ của chúng ta là xây dựng một chương trình quét tài liệu như trên hình đã mô tả.</p>
+<h3 id="7-Air-Canvas"><a href="#7-Air-Canvas" class="headerlink" title="7. Air Canvas"></a>7. Air Canvas</h3><p><img src="https://i.ytimg.com/vi/zggNw2D3SC8/maxresdefault.jpg"></p>
+<p><strong>Idea</strong> - Đây là một dự án rất thú vị, bằng cách di chuyển ngón tay trong không khí camera sẽ phát hiện đầu ngón tay và thể hiện đường vẽ của nó lên máy tính.</p>
+<h3 id="8-Colour-Detection"><a href="#8-Colour-Detection" class="headerlink" title="8. Colour Detection"></a>8. Colour Detection</h3><p><img src="https://d2h0cx97tjks2p.cloudfront.net/blogs/wp-content/uploads/sites/2/2020/01/computer-vision-Project-color-detection.jpg"></p>
+<p><strong>Idea</strong> - Việc xác định màu ở trong bức ảnh có rất nhiều ứng dụng trong cuộc sống. Nhiệm vụ của chúng ta là xây dựng một ứng dụng phát hiện màu trong ảnh như vậy.</p>
+<h2 id="Advanced-Computer-Vision-Projects"><a href="#Advanced-Computer-Vision-Projects" class="headerlink" title="Advanced Computer Vision Projects"></a>Advanced Computer Vision Projects</h2><h3 id="1-Face-Recognition"><a href="#1-Face-Recognition" class="headerlink" title="1. Face Recognition"></a>1. Face Recognition</h3><p><img src="https://d2h0cx97tjks2p.cloudfront.net/blogs/wp-content/uploads/sites/2/2020/01/face-recognition-project-1.gif"></p>
+<p><strong>Idea</strong> - Bây giờ không chỉ là nhận diện không mặt người trong ảnh nữa mà phải chỉ rõ người đó là ai.</p>
+<p>Bằng cách cung cấp dữ liệu đầu vào cho mô hình và thực hiện huấn luyện, chúng ta sẽ giúp máy tính nhận diện được người trong ảnh là ai.</p>
+<h3 id="2-Han-Gesture-Recognition"><a href="#2-Han-Gesture-Recognition" class="headerlink" title="2. Han Gesture Recognition"></a>2. Han Gesture Recognition</h3><p><img src="https://d2h0cx97tjks2p.cloudfront.net/blogs/wp-content/uploads/sites/2/2020/01/hand-gesture-recognition.gif"></p>
+<p><strong>Idea</strong> - Xác định cử chỉ ngón tay từ đó gắn với một hành động cụ thể cho máy tính.</p>
+<p>Nhiệm vụ là xây dựng chương trình nhận hình ảnh bàn tay từ webcam sau đó nhận diện cử chỉ ngón tay bằng OpenCV và Mediapipe</p>
+<h3 id="3-Good-Dog-Capture"><a href="#3-Good-Dog-Capture" class="headerlink" title="3. Good Dog Capture"></a>3. Good Dog Capture</h3><p><img src="https://i.pinimg.com/474x/ff/ea/3c/ffea3c75cab666941ebc1477c600d229.jpg"></p>
+<p><strong>Idea</strong> - Chó thường rất hiếu động ít khi đứng yên một chỗ, vì vậy việc chụp 1 tấm hình đẹp cho chú chó của bạn thật khó khăn.</p>
+<p>Nhiệm vụ ở đây là xây dựng chương trình tự động chụp lại chú chó khi nó đang cười và nhìn thằng vào camera.</p>
+<h3 id="4-Vehicle-Counting-and-Classification"><a href="#4-Vehicle-Counting-and-Classification" class="headerlink" title="4. Vehicle Counting and Classification"></a>4. Vehicle Counting and Classification</h3><p><img src="https://d2h0cx97tjks2p.cloudfront.net/blogs/wp-content/uploads/sites/2/2020/01/Vehicle-counting-and-classification.jpg"></p>
+<p><strong>Idea</strong> - Sử dụng kỹ thuật thị giác máy tính để phân loại xe trên đường, HMV(heave motor vehicle : xe cơ giới hạng nặng) hay LMV(light motor vehicle : xe cơ giới hạng nhẹ), đếm lưu lượng xe qua con đường đó.</p>
+<p>Có thể lưu lại dữ liệu vào 1 tệp để phân tích dữ liệu, đưa ra một số kết luận.</p>
+<h3 id="5-Data-Augmentation-Generator"><a href="#5-Data-Augmentation-Generator" class="headerlink" title="5. Data Augmentation Generator"></a>5. Data Augmentation Generator</h3><p><img src="https://analyticsindiamag.com/wp-content/uploads/2020/09/doggs.jpg"></p>
+<p><strong>Idea</strong> - Trong việc đào tạo cho các mô hình học máy và học sâu cần rất nhiều ảnh làm dữ liệu, dữ liệu càng có tính tổng qua thì mô hình càng chất lượng.</p>
+<p>Nhiệm vụ là xây dựng chương trình nhận ảnh đầu vào và thực hiện các phép biến hình để được nhiều bức ảnh mới với chiều khác nhau nhằm phục vụ cho quá trình đào tạo của mô hình.</p>
+<h3 id="6-Selfie-Capture-when-the-User-Smiles"><a href="#6-Selfie-Capture-when-the-User-Smiles" class="headerlink" title="6. Selfie Capture when the User Smiles"></a>6. Selfie Capture when the User Smiles</h3><p><img src="https://data-flair.training/blogs/wp-content/uploads/sites/2/2020/08/python-project-auto-capture-selfie-detect-smile-1200x675.jpg"></p>
+<p><strong>Idea</strong> - Bức ảnh selfie sẽ trông thật đẹp nếu chúng ta cười, việc vừa cười vừa bấm máy có thể khiến bức ảnh không được tự nhiên cho lắm.</p>
+<p>Nhiệm vụ của chúng ta là xây dựng chương trình tự động chụp hình khi người trong khung webcam khi họ cười. </p>
+<h3 id="7-Virtual-Drums-with-OpenCV"><a href="#7-Virtual-Drums-with-OpenCV" class="headerlink" title="7. Virtual Drums with OpenCV"></a>7. Virtual Drums with OpenCV</h3><p><img src="https://i.redd.it/3d3q57cdv4t21.jpg"></p>
+<p><strong>Idea</strong> - Bằng việc xác định đầu gậy khi đánh vào vị trí trông ảo trên màn hình sẽ phát ra tiếng. </p>
+<p>Để làm được điều này ngoài việc xác định đầu của gậy ta còn xác định thêm tốc độ của đầu gậy khi đánh vào vị trí trống để từ đó đưa ra âm lượng hợp lý.</p>
+<h3 id="8-Image-Reverse-Search-Engine"><a href="#8-Image-Reverse-Search-Engine" class="headerlink" title="8. Image Reverse Search Engine"></a>8. Image Reverse Search Engine</h3><p><img src="https://freaksense.com/wp-content/uploads/2020/02/Reverse-Image-Search-tool.png"></p>
+<p><strong>Idea</strong> - Sử dụng hình ảnh để tìm kiếm những hình ảnh tương tự. Ta cần chuẩn bị một cơ sở dữ liệu chứa nhiều hình ảnh, sau đó chọn một ảnh để tìm các hình ảnh tương tự từ cơ sở dữ liệu.</p>
+<h2 id="Tong-ket"><a href="#Tong-ket" class="headerlink" title="Tổng kết"></a>Tổng kết</h2><p>Ứng dụng của thị giác máy tính trong đời sống là rất nhiều và hết sức to lớn. Bằng việc làm những dự án từ cơ bản đến nâng cao sẽ giúp bạn nâng cao trình độ cũng như kiến thức về mảng thị giác máy tính. </p>
+<p>Trong những bài viết tới mình sẽ hướng dẫn chi tiết cách giải chi tiết cho từng bài toán. Bạn đọc cũng có thể tự tìm kiếm trên mạng, có rất nhiều nguồn để bạn tham khảo và giải quyết bài toán theo nhiều cách khác nhau.</p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                
+                
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/Computer-Vision/"># Computer Vision</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+            
+            <a class="next" rel="next" href="/2021/07/19/Thi-Giac-May-Tinh/">Thị giác máy tính - Computer Vision</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <a href="https://github.com/KudoKhang" target="_blank" rel="noopener">Kudo Khang</a> | <span class="print"> <a href="javascript:window.print()">PDF</a></span>
+    </div>
+</footer>
+
+
+
+
+<!-- <span> Kudo Khang | <a href="javascript:window.print()">PDF</a> </span> -->
+    </div>
+</body>
+</html>
