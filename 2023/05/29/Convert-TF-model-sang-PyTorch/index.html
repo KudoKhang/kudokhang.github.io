@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="vn">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Kudo Khang">
+
+
+
+
+
+<title>Convert-TF-model-sang-PyTorch | Khang&#39;s blogs</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Khang&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Khang&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">Convert-TF-model-sang-PyTorch</h1>
+            
+                <div class="post-meta">
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">May 29, 2023&nbsp;&nbsp;21:36:49</a>
+                        </span>
+                    
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h1 id="I-Gioi-thieu"><a href="#I-Gioi-thieu" class="headerlink" title="I. Giới thiệu"></a>I. Giới thiệu</h1><p>Còn nhớ hồi mình mới học về Machine Learning (cách đây khoảng 2-3 năm) các bài hướng dẫn trên Blog, YouTube, GitHub đều xài TensorFlow. PyTorch là một FrameWork được Facebook phát triển, tuy ra đời sau nhưng càng ngày càng nhận được sự quan tâm và sử dụng của cộng đồng, lý giải cho sự phát triển nhanh chóng của PyTorch có thể đến từ việc nó xây dựng trên Python (mà Python lại là ngôn ngữ chính được sử dụng trong các task về Machine Learning &#x2F; Deep Learning), hiệu suất, tính tinh hoạt, tận dụng được việc tính toán song song trên nhiều GPU… </p>
+<p>Một thống kê trên HuggingFace về mức độ phổ biến giữa 2 Framework, có đến 92% model sử dụng PyTorch để phát triển mô hình từ đó có thể thấy được mức độ phổ biến của PyTorch là như thế nào.</p>
+<p><img src="https://i.imgur.com/ZLFlavF.png" alt="Number of Models in HuggingFace"></p>
+<p>Thêm một thống kê nữa để chỉ ra sự chuyển dịch của các nhà phát triển từ TensorFlow sang PyTorch.</p>
+<p><img src="https://i.imgur.com/xmb3jdv.png" alt="Tensor with PyTorch"></p>
+<p>Chuyện là mình có một bài toán trong đó có sử dụng cả mô hình TF và PyTorch (được viết cũng một năm rồi), mấy hôm trước mình cần phải triển khai lại mô hình đó từ máy tính bàn sang máy tính nhúng Jetson, vì khác kiến trúc nhân bộ xử lý CPU nên nhiều thư viện bị conflict, không thể cài đặt một cách dễ dàng được. Vì vậy mình cần phải convert model TF sang PyTorch cho đồng bộ. Một hướng xử lý phổ biến đó là convert model TF sang ONNX.</p>
+<p><img src="https://i.imgur.com/dlY0hSt.png" alt="Tf to ONNX"></p>
+<p>Tuy nhiên vì mô hình của mình khá nhỏ và đơn giản nên mình muốn tìm cách liệu có convert TF sang PyTorch một cách trực tiếp không? Câu trả lời là được và để thực hiện chúng ta chỉ cần thực hiện 2 bước chính như sau:</p>
+<ul>
+<li>Xây dựng lại model PyTorch có kiến trúc giống với model TensorFlow</li>
+<li>Tiến hành copy weights (các trọng số) từ checkpoints TF sang model PyTorch</li>
+</ul>
+<p>Chi tiết thực hiện sẽ được trình bày trong mục 2</p>
+<h1 id="II-Thuc-nghiem"><a href="#II-Thuc-nghiem" class="headerlink" title="II. Thực nghiệm"></a>II. Thực nghiệm</h1><p>Mô hình TensorFlow của mình ở đây có nhiệm vụ phân loại 31 ký tự trong bảng chữ cái, kiến trúc model sẽ như sau</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># TensorFlow model</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">_build_model_tensorflow</span>(<span class="params">self</span>):</span><br><span class="line">        self.model = Sequential()</span><br><span class="line">        self.model.add(Conv2D(<span class="number">32</span>, (<span class="number">3</span>, <span class="number">3</span>), padding=<span class="string">&quot;same&quot;</span>, activation=<span class="string">&quot;relu&quot;</span>, input_shape=(<span class="number">28</span>, <span class="number">28</span>, <span class="number">1</span>)))</span><br><span class="line">        self.model.add(Conv2D(<span class="number">32</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&quot;relu&quot;</span>))</span><br><span class="line">        self.model.add(MaxPooling2D(pool_size=(<span class="number">2</span>, <span class="number">2</span>)))</span><br><span class="line">        self.model.add(Dropout(<span class="number">0.25</span>))</span><br><span class="line"></span><br><span class="line">        self.model.add(Conv2D(<span class="number">64</span>, (<span class="number">3</span>, <span class="number">3</span>), padding=<span class="string">&quot;same&quot;</span>, activation=<span class="string">&quot;relu&quot;</span>))</span><br><span class="line">        self.model.add(Conv2D(<span class="number">64</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&quot;relu&quot;</span>))</span><br><span class="line">        self.model.add(MaxPooling2D(pool_size=(<span class="number">2</span>, <span class="number">2</span>)))</span><br><span class="line">        self.model.add(Dropout(<span class="number">0.25</span>))</span><br><span class="line"></span><br><span class="line">        self.model.add(Conv2D(<span class="number">64</span>, (<span class="number">3</span>, <span class="number">3</span>), padding=<span class="string">&quot;same&quot;</span>, activation=<span class="string">&quot;relu&quot;</span>))</span><br><span class="line">        self.model.add(Conv2D(<span class="number">64</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&quot;relu&quot;</span>))</span><br><span class="line">        self.model.add(MaxPooling2D(pool_size=(<span class="number">2</span>, <span class="number">2</span>)))</span><br><span class="line">        self.model.add(Dropout(<span class="number">0.25</span>))</span><br><span class="line"></span><br><span class="line">        self.model.add(Flatten())</span><br><span class="line">        self.model.add(Dense(<span class="number">512</span>, activation=<span class="string">&quot;relu&quot;</span>))</span><br><span class="line">        self.model.add(Dropout(<span class="number">0.5</span>))</span><br><span class="line">        self.model.add(Dense(<span class="number">32</span>, activation=<span class="string">&quot;softmax&quot;</span>))</span><br></pre></td></tr></table></figure>
+
+<p>Có thể thấy đây là một mạng CNN với các lớp Conv2D, MaxPooling… rất cơ bản, bây giờ chúng ta cần build một model PyTorch với kiến trúc tương tự như vậy:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Build_Model_PyTorch</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">super</span>(Build_Model_PyTorch, self).__init__()</span><br><span class="line"></span><br><span class="line">        self.conv1 = nn.Conv2d(<span class="number">1</span>, <span class="number">32</span>, kernel_size=<span class="number">3</span>, padding=<span class="number">1</span>)</span><br><span class="line">        self.conv2 = nn.Conv2d(<span class="number">32</span>, <span class="number">32</span>, kernel_size=<span class="number">3</span>)</span><br><span class="line">        self.pool1 = nn.MaxPool2d(kernel_size=<span class="number">2</span>, stride=<span class="number">2</span>)</span><br><span class="line">        self.dropout1 = nn.Dropout(<span class="number">0.25</span>)</span><br><span class="line"></span><br><span class="line">        self.conv3 = nn.Conv2d(<span class="number">32</span>, <span class="number">64</span>, kernel_size=<span class="number">3</span>, padding=<span class="number">1</span>)</span><br><span class="line">        self.conv4 = nn.Conv2d(<span class="number">64</span>, <span class="number">64</span>, kernel_size=<span class="number">3</span>)</span><br><span class="line">        self.pool2 = nn.MaxPool2d(kernel_size=<span class="number">2</span>, stride=<span class="number">2</span>)</span><br><span class="line">        self.dropout2 = nn.Dropout(<span class="number">0.25</span>)</span><br><span class="line"></span><br><span class="line">        self.conv5 = nn.Conv2d(<span class="number">64</span>, <span class="number">64</span>, kernel_size=<span class="number">3</span>, padding=<span class="number">1</span>)</span><br><span class="line">        self.conv6 = nn.Conv2d(<span class="number">64</span>, <span class="number">64</span>, kernel_size=<span class="number">3</span>)</span><br><span class="line">        self.pool3 = nn.MaxPool2d(kernel_size=<span class="number">2</span>, stride=<span class="number">2</span>)</span><br><span class="line">        self.dropout3 = nn.Dropout(<span class="number">0.25</span>)</span><br><span class="line"></span><br><span class="line">        self.fc1 = nn.Linear(<span class="number">64</span>, <span class="number">512</span>)</span><br><span class="line">        self.dropout4 = nn.Dropout(<span class="number">0.5</span>)</span><br><span class="line">        self.fc2 = nn.Linear(<span class="number">512</span>, <span class="number">32</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, x</span>):</span><br><span class="line">        x = self.conv1(x)</span><br><span class="line">        x = nn.functional.relu(x)</span><br><span class="line">        x = self.conv2(x)</span><br><span class="line">        x = nn.functional.relu(x)</span><br><span class="line">        x = self.pool1(x)</span><br><span class="line">        x = self.dropout1(x)</span><br><span class="line"></span><br><span class="line">        x = self.conv3(x)</span><br><span class="line">        x = nn.functional.relu(x)</span><br><span class="line">        x = self.conv4(x)</span><br><span class="line">        x = nn.functional.relu(x)</span><br><span class="line">        x = self.pool2(x)</span><br><span class="line">        x = self.dropout2(x)</span><br><span class="line"></span><br><span class="line">        x = self.conv5(x)</span><br><span class="line">        x = nn.functional.relu(x)</span><br><span class="line">        x = self.conv6(x)</span><br><span class="line">        x = nn.functional.relu(x)</span><br><span class="line">        x = self.pool3(x)</span><br><span class="line">        x = self.dropout3(x)</span><br><span class="line"></span><br><span class="line">        x = x.view(-<span class="number">1</span>, <span class="number">64</span>)</span><br><span class="line">        x = self.fc1(x)</span><br><span class="line">        x = nn.functional.relu(x)</span><br><span class="line">        x = self.dropout4(x)</span><br><span class="line">        x = self.fc2(x)</span><br><span class="line">        x = nn.functional.softmax(x, dim=<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> x</span><br></pre></td></tr></table></figure>
+
+<p>Thoạt nhìn qua thì thấy model PyTorch dài hơn TensorFlow nhỉ? Tuy nhiên nếu nhìn kỹ thì sẽ thấy các layer của model PyTorch hoàn toàn tương tự với TF (việc nhìn kỹ thì các bạn tự nhìn nhé 👀)</p>
+<p>Sau khi đã build được kiến trúc model tương tự rồi, công việc tiếp theo là copy weights từ model cũ sang model mới</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> keras.models <span class="keyword">import</span> load_model</span><br><span class="line"></span><br><span class="line"><span class="comment"># Load the TF model</span></span><br><span class="line">keras_model = load_model(<span class="string">&quot;checkpoints/classify_character.h5&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Get the TF model&#x27;s weights as a NumPy array</span></span><br><span class="line">keras_weights = keras_model.get_weights()</span><br><span class="line"></span><br><span class="line"><span class="comment"># Init PyTorch Model</span></span><br><span class="line">torch_model = Build_Model_PyTorch()</span><br><span class="line"></span><br><span class="line"><span class="comment"># Copy weights</span></span><br><span class="line"><span class="keyword">for</span> i, (name, param) <span class="keyword">in</span> <span class="built_in">enumerate</span>(torch_model.named_parameters()):</span><br><span class="line">        <span class="keyword">if</span> <span class="string">&quot;weight&quot;</span> <span class="keyword">in</span> name:</span><br><span class="line">            w = torch.from_numpy(keras_weights[i])</span><br><span class="line">							</span><br><span class="line">			<span class="comment"># Convert dimensions</span></span><br><span class="line">            <span class="keyword">if</span> w.dim() == <span class="number">3</span>:</span><br><span class="line">                w = w.t()</span><br><span class="line">            <span class="keyword">elif</span> w.dim() == <span class="number">1</span>:</span><br><span class="line">                <span class="keyword">pass</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">assert</span> w.dim() == <span class="number">4</span></span><br><span class="line">                w = w.permute(<span class="number">3</span>, <span class="number">2</span>, <span class="number">0</span>, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">            param.data = w</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Save the PyTorch model&#x27;s weights</span></span><br><span class="line">    torch.save(torch_model.state_dict(), <span class="string">&quot;checkpoints/classify_character.pt&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>Ở đây có một điểm mà chúng ta cần lưu ý, mô hình TF làm việc với input [B, H, W, C] trong khi PyTorch lại input là [B, C, H, W] (Batch_size, Channel, Height, Width), chính vì vậy mới cần thêm <code>Convert dimensions</code>.</p>
+<p>Ví dụ với sample bên dưới, input cho model TF là [1, 28, 28, 1] thì qua mô hình PyTorch sẽ là [1, 1, 28, 28].</p>
+<p><img src="https://i.imgur.com/2FBZDsK.png" alt="Samples"></p>
+<h1 id="III-Ket-qua"><a href="#III-Ket-qua" class="headerlink" title="III. Kết quả"></a>III. Kết quả</h1><p>Từ trên xuống dưới lần lượt là kết quả dự đoán của mô hình TF và PyTorch.</p>
+<p><img src="https://i.imgur.com/hU8J4p3.png" alt="Compare TF with PyTorch"></p>
+<p>Hy vọng hướng dẫn này sẽ hữu ích cho những bạn nào cần thực hiện convert model như mình. </p>
+<p>Bái bai và hẹn gặp lại trong những bài viết tiếp theo 🫵</p>
+<h1 id="IV-References"><a href="#IV-References" class="headerlink" title="IV. References"></a>IV. References</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/KudoKhang/CodeInBlog/tree/main/TF2Torch">Code in GitHub</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/onnx/tensorflow-onnx">TensorFlow to ONNX</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.assemblyai.com/blog/pytorch-vs-tensorflow-in-2023/">PyTorch and TensorFlow in 2023</a></li>
+</ul>
+
+        </div>
+
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/Technical/"># Technical</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+            
+            <a class="next" rel="next" href="/2023/05/20/Bai-Viet-Dau-Tien/">Bài viết đầu tiên</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+
+<script src="https://utteranc.es/client.js"
+        repo="KudoKhang/kudokhang.github.io"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <!-- <span>Kudo Khang</span> -->
+        <a href="https://github.com/KudoKhang" target="_blank" rel="noopener">Kudo Khang</a> 🎧 <span class="print"><a href="javascript:window.print()">PDF</a> </span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>
