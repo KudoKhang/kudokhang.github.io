@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="vn">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Kudo Khang">
+
+
+
+
+
+<title>Tùy chỉnh Terminal: Nâng cao hiệu suất và trải nghiệm gõ code | Khang&#39;s blogs</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Khang&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Khang&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">Tùy chỉnh Terminal: Nâng cao hiệu suất và trải nghiệm gõ code</h1>
+            
+                <div class="post-meta">
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">January 6, 2024&nbsp;&nbsp;16:20:37</a>
+                        </span>
+                    
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h1 id="I-Mo-dau"><a href="#I-Mo-dau" class="headerlink" title="I. Mở đầu"></a>I. Mở đầu</h1><p>Là một lập trình viên, terminal chắc chắn là một công cụ mà bạn sẽ phải thao tác làm việc với nó mỗi ngày, tuy nhiên với terminal mặc định trông nó sẽ khá kùi pắp, giao diện xấu và chức năng hạn chế. Trong bài viết này mình sẽ hướng dẫn các bạn cách:</p>
+<ul>
+<li>Tùy biến terminal để nó trông màu mè, đẹp đẽ hơn.</li>
+<li>Cung cấp một số tips giúp nâng cao hiệu suất khi làm việc với terminal.</li>
+</ul>
+<h1 id="II-Tuy-chinh-Terminal"><a href="#II-Tuy-chinh-Terminal" class="headerlink" title="II. Tùy chỉnh Terminal"></a>II. Tùy chỉnh Terminal</h1><p>Như đã nói từ đầu, terminal mặc định sẽ rất hạn chế chức năng và khả năng tùy chỉnh từ người dùng vì vậy việc đầu tiên chúng ta cần làm là thay ngay một terminal mới 🫵</p>
+<p>Terminal mới mình chọn ở đây là <code>Tabby</code>, vì một số lý do sau:</p>
+<ul>
+<li>Đẹp</li>
+<li>Tương thích trên cả Mac và Linux (trước đó mình xài <code>Iterm2</code>, cũng khá đẹp nhưng chỉ có thể cài đặt trên Mac)</li>
+<li>Quản lý profile kết nối tới server</li>
+</ul>
+<p><img src="https://i.imgur.com/IxxS7W5.png" alt="[https://tabby.sh/](https://tabby.sh/)"></p>
+<p><a target="_blank" rel="noopener" href="https://tabby.sh/">https://tabby.sh/</a></p>
+<p>Sau khi cài đặt, terminal của chúng ta chưa thể màu mè được như hình minh họa từ trang chủ Tabby đâu, để được như vậy chúng ta cần cài thêm ZSH thay cho Shell mặc định và themes, plugins cho nó nữa.</p>
+<h2 id="Buoc-1-Cai-dat-ZSH"><a href="#Buoc-1-Cai-dat-ZSH" class="headerlink" title="Bước 1: Cài đặt ZSH"></a>Bước 1: Cài đặt ZSH</h2><p>Trong bài này mình sẽ hướng dẫn cài đặt trên Ubuntu, những hệ điều hành khác các bạn hoàn toàn có thể làm tương tự nhé.</p>
+<p>Đầu tiên là cài đặt ZSH:</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install zsh</span><br></pre></td></tr></table></figure>
+
+<p>Đặt ZSH làm Shell mặc định</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chsh -s $(which zsh)</span><br></pre></td></tr></table></figure>
+
+<p>Sau khi đổi xong các bạn cần restart terminal để thay đổi được áp dụng. Lần đầu vào lại ZSH sẽ hỏi chúng ta về việc khởi tạo file configuration.</p>
+<p><img src="https://i.imgur.com/9myYTi0.png" alt="ZSH"></p>
+<p>Tại đây chúng ta chọn option 0 để tạo một file config rỗng vì phần config chúng ta sẽ dùng của oh-my-zsh framework sẽ được cài đặt ngay sau đây</p>
+<h2 id="Buoc-2-Cai-dat-Oh-my-zsh-framework"><a href="#Buoc-2-Cai-dat-Oh-my-zsh-framework" class="headerlink" title="Bước 2: Cài đặt Oh-my-zsh framework"></a>Bước 2: Cài đặt Oh-my-zsh framework</h2><p>Oh-my-zsh là một framework mở rộng cho Zsh, nó cung cấp một bộ sưu tập các tính năng, themes và plugins để tùy chỉnh và nâng cao trải nghiệm sử dụng Zsh</p>
+<p>Để cài đặt chúng ta chỉ cần:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh -c <span class="string">&quot;<span class="subst">$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)</span>&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>Sau khi cài đặt chúng ta sẽ thấy một giao diện như sau.</p>
+<p><img src="https://i.imgur.com/3W9BJ4X.png" alt="Oh-my-zsh"></p>
+<p>Oh-my-zsh sẽ sử dụng file config <code>.zshrc</code> đã được khởi tạo trước đó và áp dụng những config thay đổi thêm vào.</p>
+<p>Tới đây terminal của chúng ta đã trông màu mè hơn rất nhiều tuy nhiên vẫn chưa hết, chúng ta có thể nâng cao trải nghiệm với việc thay đổi themes và cài đặt thêm plugins</p>
+<h2 id="Buoc-3-Cai-dat-themes"><a href="#Buoc-3-Cai-dat-themes" class="headerlink" title="Bước 3: Cài đặt themes"></a>Bước 3: Cài đặt themes</h2><p>Themes mặc định của Oh-my-zsh là <code>robbyrussell</code> vì giao diện nó khá sơ sài nên chúng ta cần đổi qua theme màu mè khác để nó có thể hiển thị thêm nhiều thông tin.</p>
+<p>Theme mình đang xài là <code>powerlevel10k</code>, để cài đặt chúng ta cần tải nó về với lệnh sau:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> --depth=1 https://github.com/romkatv/powerlevel10k.git <span class="variable">$&#123;ZSH_CUSTOM:-<span class="variable">$HOME</span>/.oh-my-zsh/custom&#125;</span>/themes/powerlevel10k</span><br></pre></td></tr></table></figure>
+
+<p>Tiếp đó, thay đổi nó trong config bằng cách mở file <code>~/.zshrc</code> và tìm tới dòng <code>ZSH_THEM=”robbyrussell”</code> sửa thành:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ZSH_THEME=<span class="string">&quot;powerlevel10k/powerlevel10k”</span></span><br></pre></td></tr></table></figure>
+
+<p>Để thay đổi có hiệu lực chúng ta có thể restart terminal hoặc:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/.zshrc</span><br></pre></td></tr></table></figure>
+
+<p>Khi theme <code>powerlevel10k</code> được áp dụng thành công, chúng ta sẽ tiến hành tùy chỉnh từng bước từng bước theo hướng dẫn:</p>
+<p><img src="https://i.imgur.com/fTHLEPL.png" alt="powerlevel10k"></p>
+<aside>
+💡 Nếu thiết lập xong mà muốn thay đổi, bạn có thể gõ `p10k configure` để tiến hành thiết lập lại
+
+</aside>
+
+<p>Các bạn có thể thử nghiệm thêm các theme khác <a target="_blank" rel="noopener" href="https://github.com/ohmyzsh/ohmyzsh/wiki/Themes">tại đây</a>.</p>
+<h2 id="Buoc-4-Cai-dat-plugins"><a href="#Buoc-4-Cai-dat-plugins" class="headerlink" title="Bước 4: Cài đặt plugins"></a>Bước 4: Cài đặt plugins</h2><p>ZSH sẽ giúp việc thao tác với terminal thuận tiện hơn với kho plugins đa dạng. Sau đây mình sẽ thực hiện cài 2 plugins mà mình nghĩ bắt buộc phải có cho terminal.</p>
+<h3 id="Dau-tien-zsh-autosuggestions"><a href="#Dau-tien-zsh-autosuggestions" class="headerlink" title="Đầu tiên: zsh-autosuggestions"></a>Đầu tiên: zsh-autosuggestions</h3><p>Plugin này sẽ gợi ý command dựa trên lịch sử gõ của bạn, để cài đặt đầu tiên ta cần tải nó về:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/zsh-users/zsh-autosuggestions <span class="variable">$&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;</span>/plugins/zsh-autosuggestions</span><br><span class="line">zsh-autosuggestions</span><br></pre></td></tr></table></figure>
+
+<p>Khai báo plugin trong config, các bạn mở file  <code>~/.zshrc</code> và tìm tới dòng:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plugins=(git)</span><br></pre></td></tr></table></figure>
+
+<p>Thêm <code>zsh-autosuggestions</code> vào:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plugins=(git zsh-autosuggestions)</span><br></pre></td></tr></table></figure>
+
+<p>Để thay đổi có hiệu lực chúng ta lại thực hiện:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/.zshrc</span><br></pre></td></tr></table></figure>
+
+<aside>
+💡 File config được viết bằng BashScript các bạn chú ý không thêm dấu `,` kẻo gây lỗi nhé.
+
+</aside>
+
+<h3 id="Tiep-theo-zsh-syntax-highlighting"><a href="#Tiep-theo-zsh-syntax-highlighting" class="headerlink" title="Tiếp theo: zsh-syntax-highlighting"></a>Tiếp theo: zsh-syntax-highlighting</h3><p><code>zsh-syntax-highlighting</code> giúp hiển thị các thành phần trong command với các màu khác nhau để thuận tiện cho việc gõ, ngoài ta những command không đúng sẽ được hiện màu đỏ, việc này sẽ giúp chúng ta nhìn ra sớm để kịp sửa đổi. Việc cài đặt hoàn toàn tương tự như trên, đầu tiên chúng ta cần tải plugin này về máy:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/zsh-users/zsh-syntax-highlighting.git <span class="variable">$&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;</span>/plugins/zsh-syntax-highlighting</span><br><span class="line">zsh-syntax-highlighting</span><br></pre></td></tr></table></figure>
+
+<p>Khai báo nó trong file config <code>~/.zshrc</code>:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plugins=(git zsh-autosuggestions zsh-syntax-highlighting)</span><br></pre></td></tr></table></figure>
+
+<p>Và cuối cùng là:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/.zshrc</span><br></pre></td></tr></table></figure>
+
+<p>Như vậy là bạn đã biết cách cài một plugin cho ZSH, kho plugins cho ZSH rất nhiều, bạn có thể xem và cài thử <a target="_blank" rel="noopener" href="https://github.com/ohmyzsh/ohmyzsh/wiki/Plugins">tại đây</a>.</p>
+<h1 id="III-Nang-cao-hieu-suat-lam-viec-voi-shortcut-va-alias"><a href="#III-Nang-cao-hieu-suat-lam-viec-voi-shortcut-va-alias" class="headerlink" title="III. Nâng cao hiệu suất làm việc với shortcut và alias"></a>III. Nâng cao hiệu suất làm việc với shortcut và alias</h1><h2 id="Shortcut-cho-Terminal"><a href="#Shortcut-cho-Terminal" class="headerlink" title="Shortcut cho Terminal"></a>Shortcut cho Terminal</h2><p>Phím tắt giúp bạn thực hiện các thao tác một cách nhanh chóng và hiệu quả hơn so với việc sử dụng chuột hoặc thao tác bằng cách thủ công. Điều này giảm thời gian mất khi bạn phải di chuyển chuột và thực hiện các thao tác trên giao diện người dùng.</p>
+<p>Làm việc với terminal cũng vậy, việc biết và sử dụng shortcut sẽ giúp đôi tay của bạn lả lướt mượt mà hơn trên bàn phím. Sau đây là một số shortcut hữu ích mà mình thường dùng:</p>
+<ul>
+<li><code>Ctrl + l</code>: Chức năng tương tự <code>clear</code>, giúp clear màn hình trong terminal.</li>
+<li><code>Ctrl + k</code>: Xóa từ vị trí con trỏ đến cuối dòng.</li>
+<li><code>Ctrl + u</code>: Xóa tự trị trí con trỏ tới đầu hàng.</li>
+<li><code>Ctrl + a</code>: Di chuyển con trỏ về đầu dòng.</li>
+<li><code>Ctrl + e</code>: Di chuyển chon trỏ tới cuối dòng.</li>
+<li><code>Ctrl + w</code>: Xóa từng từ từ vị trí con trỏ về tới đầu hàng.</li>
+<li><code>Ctrl + c</code>: Câu này chắc là quen thuộc nhất rồi, dừng lệnh đang chạy.</li>
+<li><code>Ctrl + d</code>: Đóng terminal hoặc thoát khỏi shell hiện tại (Ví dụ đang ở trong container hoặc ssh tới server nào đó, chúng ta có thể dùng <code>Ctrl + d</code> để thoát ra khỏi môi trường đó)</li>
+</ul>
+<p>Các bạn có thể tìm hiểu thêm các Shortcut <a target="_blank" rel="noopener" href="https://itsfoss.com/linux-terminal-shortcuts/">tại đây</a> để múa cho ngầu nhé.</p>
+<h2 id="Alias"><a href="#Alias" class="headerlink" title="Alias"></a>Alias</h2><p>Alias trong terminal là một cách để tạo ra shortcut cho những câu lệnh mà chúng ta thường dùng, từ đó rút ngắn thời gian gõ, nâng cao hiệu suất làm việc. </p>
+<p>Để thêm alias vào hệ thống chúng ta sẽ mở tệp cấu hình hệ thống <code>~/.zshrc</code> lên và tiến hành thêm vào cuối file như sau:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Alias</span></span><br><span class="line"><span class="built_in">alias</span> hello=<span class="string">&#x27;echo Hii, Chao Cau!&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Để những sửa đổi trong ~/.zshrc có hiệu lực các bạn nhớ source ~/.zshrc nhé.</span></span><br></pre></td></tr></table></figure>
+
+<p>Hoặc chúng ta có thể thêm trực tiếp trên terminal như sau:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">alias</span> hello=<span class="string">&#x27;echo Hii, Chao Cau!&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>Sau đó khi gõ <code>hello</code> trên terminal chúng ta sẽ nhận được kết quả như sau:</p>
+<p><img src="https://i.imgur.com/VXLuZJf.png" alt="alias"></p>
+<p>Như vậy các bạn đã hình dung ra alias là gì và cách để thêm nó vào hệ thống của mình rồi đúng không nào, sau đây mình sẽ đưa ra một số alias mình thường dùng để giúp workflow làm việc với Git và Docker được nhanh chóng mau lẹ hơn.</p>
+<h3 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Alias for Git</span></span><br><span class="line"><span class="built_in">alias</span> gst=<span class="string">&#x27;git status&#x27;</span></span><br><span class="line"><span class="built_in">alias</span> gc=<span class="string">&#x27;git commit&#x27;</span></span><br><span class="line"><span class="built_in">alias</span> gl=<span class="string">&#x27;git pull&#x27;</span></span><br><span class="line"><span class="built_in">alias</span> gp=<span class="string">&#x27;git push&#x27;</span></span><br><span class="line"><span class="built_in">alias</span> gco=<span class="string">&#x27;git checkout&#x27;</span></span><br><span class="line"><span class="built_in">alias</span> gcb=<span class="string">&#x27;git checkout -b&#x27;</span></span><br><span class="line"><span class="built_in">alias</span> gbr=<span class="string">&#x27;git branch&#x27;</span></span><br><span class="line"><span class="built_in">alias</span> glog=<span class="string">&#x27;git log --oneline --graph --all&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Alias for Docker</span></span><br><span class="line"><span class="built_in">alias</span> dps=<span class="string">&#x27;docker ps&#x27;</span></span><br><span class="line"><span class="built_in">alias</span> dpsf=<span class="string">&quot;docker ps --format &#x27;table &#123;&#123;.ID&#125;&#125;\t&#123;&#123;.Names&#125;&#125;\t&#123;&#123;.Status&#125;&#125;\t&#123;&#123;.Ports&#125;&#125;&#x27;&quot;</span></span><br><span class="line"><span class="built_in">alias</span> dpsa=<span class="string">&#x27;docker ps -a&#x27;</span></span><br><span class="line"><span class="built_in">alias</span> dpsaf=<span class="string">&quot;docker ps -a --format &#x27;table &#123;&#123;.ID&#125;&#125;\t&#123;&#123;.Names&#125;&#125;\t&#123;&#123;.Status&#125;&#125;\t&#123;&#123;.Ports&#125;&#125;&#x27;&quot;</span></span><br><span class="line"><span class="built_in">alias</span> dexec=<span class="string">&#x27;docker exec -it&#x27;</span></span><br><span class="line"><span class="built_in">alias</span> drm=<span class="string">&#x27;docker rm&#x27;</span></span><br><span class="line"><span class="built_in">alias</span> drmi=<span class="string">&#x27;docker rmi&#x27;</span></span><br><span class="line"><span class="built_in">alias</span> dstopall=<span class="string">&#x27;docker stop $(docker ps -q)&#x27;</span></span><br><span class="line"><span class="built_in">alias</span> dlogs=<span class="string">&#x27;docker logs&#x27;</span></span><br><span class="line"><span class="built_in">alias</span> dc=<span class="string">&#x27;docker compose&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>Nội dung các dòng lệnh trên rất là cơ bản nên mình sẽ không giải thích chức năng cụ thể nhé.</p>
+<aside>
+⚠️ Một số lưu ý khi đặt tên và sử dụng alias
+
+</aside>
+
+<p>Những thiết lập alias sẽ chỉ hoạt động trên hệ thống của bạn và nếu chỉ mỗi bạn dùng thì bạn có thể thoải sáng tạo đặt tên, tuy nhiên mình muốn lưu ý một số điểm sau:</p>
+<p><strong>Việc đặt tên</strong>:</p>
+<p>Việc đặt tên nên mang ý nghĩa gợi nhớ, liệu bạn có muốn đặt alias cho lệnh <code>git status</code> là <code>hello everybody, sau khi tôi gõ dòng này trạng thái git sẽ xuất hiện trên terminal nè</code> hay <code>a</code>, <code>b</code>, <code>c</code>… chẳng hạn. Nếu bạn đặt bằng 1 chữ cái như trên thì tin tốt là bạn có thể giảm thời gian gõ từ 10 ký tự <code>git status</code> về 1, tuy nhiên khi số lượng alias tăng lên thì việc nhớ tên alias sẽ trở thành một vấn đề khó khăn.</p>
+<p>Còn nếu bạn chọn cách đặt tên như cách đầu tiên thì… well, mình không có ý kiến gì cả, chỉ muốn khuyên bạn mỗi khi dùng hãy cẩn thận đừng để đồng nghiệp với sếp thấy bởi vì họ sẽ bắt đầu kì thị bạn đấy 🤧</p>
+<p>Tránh những alias đã được sử dụng trong hệ thống trước đó, ví dụ ta có <code>nano</code> là trình edit văn bản mặc định trên Ubuntu, sẽ ra sao nếu chúng ta đặt một alias như sau</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">alias</span> nano=<span class="string">&quot;echo hello&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>Như vậy khi gõ <code>nano</code> trên terminal chúng ta sẽ nhận được dòng <code>hello</code> thay vì vào trình edit văn bản bằng <code>nano</code>.</p>
+<p>Khi đặt 2 alias trùng tên nhau, hệ thống sẽ sử dụng alias cuối cùng</p>
+<h3 id="Tra-cuu-alias-va-xoa-alias"><a href="#Tra-cuu-alias-va-xoa-alias" class="headerlink" title="Tra cứu alias và xóa alias"></a>Tra cứu alias và xóa alias</h3><p>Để kiểm tra xem có những alias nào được khai báo trên hệ thống chúng ta gõ:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">alias</span></span><br></pre></td></tr></table></figure>
+
+<p>Với câu lệnh trên, nó sẽ hiện ra danh sách alias đang có trên hệ thống. Chúng ta có thể kết hợp với <code>grep</code> để tìm kiếm một alias cụ thể:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">alias</span> | grep <span class="string">&quot;git&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>Và cuối cùng, nếu muốn xóa alias chùng ta sẽ sử dụng câu lệnh sau:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">unalias</span> alias1 alias2 alias3</span><br></pre></td></tr></table></figure>
+
+<h1 id="IV-Tong-ket"><a href="#IV-Tong-ket" class="headerlink" title="IV. Tổng kết"></a>IV. Tổng kết</h1><p>Qua bài viết này mình đã giới thiệu tới các bạn cách để màu mè hóa quy trình làm việc với terminal, hi vọng với những chia sẻ đó sẽ gíúp việc múa code của bạn thanh thoát và điệu nghệ hơn, từ đó đồng nghiệp kính nể, sếp càng iu quý, công ty tăng lương, sớm có tiền mua nhà, cưới vợ, sống một đời viên mãn 🫡.</p>
+<p><img src="https://media4.giphy.com/media/XIqCQx02E1U9W/giphy.gif?cid=7941fdc6kizu2of4mhov6cxqscuoo5x3gyxzl967s14rbcvw&ep=v1_gifs_search&rid=giphy.gif&ct=g" alt="meme"></p>
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+
+        </div>
+
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/Performance-Technical/"># Performance, Technical</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+            
+            <a class="next" rel="next" href="/2023/06/03/Python-Template-Project-cho-mot-du-an-AI/">Python Template Project cho một dự án AI</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+
+<script src="https://utteranc.es/client.js"
+        repo="KudoKhang/kudokhang.github.io"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <!-- <span>Kudo Khang</span> -->
+        <a href="https://github.com/KudoKhang" target="_blank" rel="noopener">Kudo Khang</a> 🎧 <span class="print"><a href="javascript:window.print()">PDF</a> </span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>
