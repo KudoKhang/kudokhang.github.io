@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="vn">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Kudo Khang">
+
+
+
+
+
+<title>LectureHub Introduction | Khang&#39;s blogs</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Khang&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Khang&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">LectureHub Introduction</h1>
+            
+                <div class="post-meta">
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">August 18, 2025&nbsp;&nbsp;14:19:32</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/LectureHub/">LectureHub</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h2 id="1-Mo-dau"><a href="#1-Mo-dau" class="headerlink" title="1. Mở đầu"></a>1. Mở đầu</h2><p>Ngoài là một software engineer tôi còn có nghề tay trái dạy lập trình cho các bạn nhỏ cấp 1, trong quá trình giảng dạy tôi thường phải tìm bài tập cho các bạn nhỏ luyện tập, hai nguồn tài liệu tôi thường tham khảo nhất đó là <a target="_blank" rel="noopener" href="https://laptrinh.codemath.vn/problems/">codemath</a> và <a target="_blank" rel="noopener" href="https://lqdoj.edu.vn/problems/">lqdoj</a> (cả hai đều là hệ thống ra đề và chấm bài online được xây dựng dựa trên mã nguồn mở DMOJ). Nói là code cấp 1 nhưng không có nghĩa là bài nào cũng dễ, phải thừa nhận có khá nhiều bài toán hóc búa khiến tôi phải mất rất nhiều thời gian để tìm ra lời giải (cũng có nhiều khi tìm mãi mà không ra 😅). Nếu đổi lại vị trí của người giải bài là một học sinh cấp 1 thì rất có thể có gặp các tình huống này:</p>
+<ul>
+<li><p>Làm mãi không AC được một bài –&gt; Chán nản, từ bỏ luyện tập.</p>
+</li>
+<li><p>Google thì khả năng sẽ không có, đăng lên các group hỏi bài như Facebook thì khả năng cũng không ai rảnh để ngồi giải cho.</p>
+</li>
+<li><p>Hỏi AI thì sẽ hên xui vì AI không phải bài nào cũng ra, chưa kể đến việc học sinh có thể sớm bị phụ thuộc vào AI dẫn tới nhiều hệ quả lười tư duy, sáng tạo.</p>
+</li>
+</ul>
+<p>Không chỉ học sinh gặp khó khăn, mà ngay cả giáo viên khi chuẩn bị bài giảng, hướng dẫn học sinh cũng mất khá nhiều thời gian để làm bài, viết lời giải và minh họa phù hợp.</p>
+<p>Đó chính là <strong>nỗi đau thực tế</strong> mà tôi muốn giải quyết bằng <strong>LectureHub</strong>.</p>
+<h2 id="2-LectureHub-la-gi"><a href="#2-LectureHub-la-gi" class="headerlink" title="2. LectureHub là gì?"></a>2. LectureHub là gì?</h2><p><img src="https://i.postimg.cc/N0WLckfz/lecturehub-homepage.png" alt="lecturehub homepage"></p>
+<center><i>Giao diện trang web</i></center>
+
+<p><a target="_blank" rel="noopener" href="https://www.lecturehub.tech/">LectureHub</a> là một nền tảng giúp học sinh và giáo viên <strong>tra cứu code, bài giảng, và lời giải</strong> cho các nền tảng ra bài toán tin học.</p>
+<p>Điểm đặc biệt của LectureHub so với việc tự tìm kiếm rải rác trên Google hoặc hỏi AI:</p>
+<ul>
+<li>👨‍💻 <strong>Code bài giải chính xác</strong>: Code đã được AC trên chính nền tảng ra đề.</li>
+<li>🎓 <strong>Không chỉ là code bài giải</strong>: Nền tảng sẽ bao gồm cả bài giảng, sơ đồ thuật toán, trợ lý AI hỏi đáp để giúp cho người dùng có thể thực hiểu được bài toán.</li>
+<li>📂 <strong>Thao tác đơn giản, giao diện thân thiện</strong>: Chỉ với mã đề và một click chuột bạn sẽ có ngay toàn bộ lời giải cho bài toán.</li>
+<li>🌐 <strong>Khả năng mở rộng</strong>: không chỉ dừng lại ở tra cứu, mà có thể trở thành kho tài liệu học tập lớn cho cộng đồng.</li>
+</ul>
+<p>LectureHub tự hào là nền tảng đầu tiên đi đầu trong việc xây dựng kho bài giải cho các bài toán tin ở Việt Nam.</p>
+<h2 id="3-Vi-sao-toi-xay-dung-LectureHub"><a href="#3-Vi-sao-toi-xay-dung-LectureHub" class="headerlink" title="3. Vì sao tôi xây dựng LectureHub?"></a>3. Vì sao tôi xây dựng LectureHub?</h2><p><img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExcjQ4eWo2MTAzdHdxeW5iajdqZmMwaGtkM3hvMHVranB0ODRmeDl3ciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/mCRJDo24UvJMA/giphy.gif" alt="Developing"></p>
+<p>Tôi từng là một người học đến người dạy, trong suốt quá trình đó, tôi nhận thấy:</p>
+<ul>
+<li><p>Việc học tin học thường tốn nhiều thời gian <strong>tìm kiếm nguồn tài liệu</strong> đáng tin cậy.</p>
+</li>
+<li><p>Các nền tảng như Codemath, LQDOJ… tập trung vào <strong>ra đề &amp; chấm bài</strong>, nhưng lại thiếu một <strong>hệ sinh thái tra cứu và học tập liền mạch</strong>.</p>
+</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://www.lecturehub.tech/">LectureHub</a> ra đời từ nhu cầu cá nhân đó. Nhưng đồng thời, dự án này cũng là cơ hội để tôi:</p>
+<ul>
+<li><p>Rèn luyện và showcase những kỹ năng phát triển một sản phầm phần mềm hoàn chỉnh, bao gồm:</p>
+<ul>
+<li>Phân tích nhu cầu và thiết kế hệ thống.</li>
+<li>Kỹ năng Coding, chọn và áp dụng các stack phù hợp.</li>
+<li>Kỹ năng triển khai sản phẩm, giám sát, bảo trì và nâng cấp.</li>
+<li>Cách quảng bá sản phẩm, các chiến lược marketing xây dựng thương hiệu, thu hút người dùng.</li>
+</ul>
+</li>
+<li><p>Ghi chép lại hành trình phát triển, biến nó thành một <strong>series chia sẻ kiến thức trên blog cá nhân</strong>.</p>
+</li>
+<li><p>Đóng góp giá trị cho cộng đồng học sinh, giáo viên và developer.</p>
+</li>
+</ul>
+<h2 id="4-Gia-tri-cot-loi-LectureHub-mang-lai"><a href="#4-Gia-tri-cot-loi-LectureHub-mang-lai" class="headerlink" title="4. Giá trị cốt lõi LectureHub mang lại"></a>4. Giá trị cốt lõi LectureHub mang lại</h2><ul>
+<li><p>👩‍🎓 <strong>Với học sinh</strong>: tiết kiệm thời gian tìm kiếm, học thêm nhiều cách giải, dễ dàng so sánh các tư duy.</p>
+</li>
+<li><p>👨‍🏫 <strong>Với giáo viên</strong>: có thêm nguồn tư liệu, ví dụ minh họa cho bài giảng.</p>
+</li>
+<li><p>👨‍💻 <strong>Với developer</strong>: thông qua series blog, có thể học hỏi về <strong>system design, backend, cloud, AI</strong> từ một dự án thực tế.</p>
+</li>
+</ul>
+<h2 id="5-Roadmap-phat-trien"><a href="#5-Roadmap-phat-trien" class="headerlink" title="5. Roadmap phát triển"></a>5. Roadmap phát triển</h2><p><a target="_blank" rel="noopener" href="https://www.lecturehub.tech/">LectureHub</a> không chỉ dừng lại ở phiên bản MVP. Tôi đã vạch ra một lộ trình như sau:</p>
+<ul>
+<li><p><strong>Giai đoạn 1</strong>: Xây dựng kho code bài giải.</p>
+</li>
+<li><p><strong>Giai đoạn 2</strong>: Xây dựng webapp để thuận tiện tra cứu code&#x2F;bài giảng.</p>
+</li>
+<li><p><strong>Giai đoạn 3</strong>: Tích hợp <strong>AI hỗ trợ học tập</strong> – giải thích bài toán.</p>
+</li>
+<li><p><strong>Giai đoạn 4</strong>: Mở rộng thành <strong>cộng đồng chia sẻ</strong>: học sinh, giáo viên, developer có thể cùng nhau đóng góp.</p>
+</li>
+</ul>
+<h2 id="6-Series-blog-nay-co-gi"><a href="#6-Series-blog-nay-co-gi" class="headerlink" title="6. Series blog này có gì?"></a>6. Series blog này có gì?</h2><p>Song song với việc phát triển <a target="_blank" rel="noopener" href="https://www.lecturehub.tech/">LectureHub</a>, tôi sẽ viết một <strong>series blog</strong> để chia sẻ hành trình xây dựng:</p>
+<ol>
+<li><p><strong>Thiết kế hệ thống</strong> – Kiến trúc tổng thể của LectureHub. Bao gồm: Repo Design, Database Design, Architecture Design</p>
+</li>
+<li><p><strong>Deployment</strong> – Ứng dụng sẽ được triển khai trên AWS cloud, vì vậy tôi cũng chia sẻ thêm về các AWS Service phổ biến cho việc xây dựng một website.</p>
+</li>
+<li><p><strong>Ứng dụng AI</strong> – Tích hợp RAG, chatbot hỗ trợ giải thích bài toán.</p>
+</li>
+<li><p><strong>Các tính năng phụ trợ</strong> - Tạo bộ đề ngẫu nhiên, code bài giải ở nhiều ngôn ngữ khác nhau, tạo slide bài giảng… (nhóm chức năng này sẽ triển khai sau cùng tùy vào hứng thú của người dùng)</p>
+</li>
+</ol>
+<p>Mỗi bài viết sẽ hướng tới <strong>note lại các kiến thức kỹ thuật</strong>, vừa mang lại <strong>giá trị học tập cho cộng đồng</strong>.</p>
+<h2 id="7-Loi-ket"><a href="#7-Loi-ket" class="headerlink" title="7. Lời kết"></a>7. Lời kết</h2><p><a target="_blank" rel="noopener" href="https://www.lecturehub.tech/">LectureHub</a> là dự án xuất phát từ nhu cầu cá nhân, nhưng tôi tin rằng nó có thể mang lại giá trị lớn cho cộng đồng học sinh, giáo viên, và những ai yêu thích tin học.</p>
+<p>Series blog này sẽ là hành trình từ <strong>ý tưởng → thiết kế → code → deploy → tích hợp với công nghệ AI</strong>.<br>Nếu bạn quan tâm đến backend, cloud, hay AI trong giáo dục, hãy theo dõi để cùng khám phá.</p>
+<p>👉 Cùng đón chờ bài viết đầu tiên về series này nhé: <strong>LectureHub Overview – Thiết kế hệ thống</strong>.</p>
+<!-- <figure style="text-align:center;">
+  <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExYzV2NnF3emkwNmZoN3RiYnlsNXBocm80bGV2eTIwZ202aGNocnZyaiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/BDQmMy3ZM8sgRNFkhe/giphy.gif"
+       alt="Chờ đợi bài viết đầu tiên của series LectureHub">
+  <figcaption><i>Please waitting...</i></figcaption>
+</figure> -->
+
+<p><img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExYzV2NnF3emkwNmZoN3RiYnlsNXBocm80bGV2eTIwZ202aGNocnZyaiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/BDQmMy3ZM8sgRNFkhe/giphy.gif" alt="Meme"></p>
+<center><i>Please waitting...</i></center>
+
+<h2 id="8-References"><a href="#8-References" class="headerlink" title="8. References"></a>8. References</h2><ul>
+<li>Website: <a target="_blank" rel="noopener" href="https://www.lecturehub.tech/">https://www.lecturehub.tech</a></li>
+<li>Github: <a target="_blank" rel="noopener" href="https://github.com/LectureHubTeam">https://github.com/LectureHubTeam</a></li>
+<li>Fanpage: <a target="_blank" rel="noopener" href="https://www.facebook.com/profile.php?id=61579127122566">https://www.facebook.com/profile.php?id=61579127122566</a></li>
+</ul>
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+
+        </div>
+
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/Technical/"># Technical</a>
+                    
+                        <a href="/tags/Production/"># Production</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+            
+            <a class="next" rel="next" href="/2024/01/06/Tuy-chinh-Terminal-Nang-cao-hieu-suat-va-trai-nghiem-go-code/">Tùy chỉnh Terminal: Nâng cao hiệu suất và trải nghiệm gõ code</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+
+<script src="https://utteranc.es/client.js"
+        repo="KudoKhang/kudokhang.github.io"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <!-- <span>Kudo Khang</span> -->
+        <a href="https://github.com/KudoKhang" target="_blank" rel="noopener">Kudo Khang</a> 🎧 <span class="print"><a href="javascript:window.print()">PDF</a> </span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>
