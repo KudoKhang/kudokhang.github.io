@@ -35,6 +35,8 @@
     
     <script src="/js/tocbot.min.js"></script>
     
+    <script src="/js/enhancements.js"></script>
+    
 
 
 
@@ -141,8 +143,8 @@
             <div class="main">
                 <div class="container">
     
-    
-        <div class="post-toc">
+        
+            <div class="post-toc">
     <div class="tocbot-list">
     </div>
     <div class="tocbot-list-menu">
@@ -206,28 +208,33 @@
         return target;
     }
 </script>
-    
-
-    
-    <article class="post-wrap">
-        <header class="post-header">
-            <h1 class="post-title">Convert TF model sang PyTorch</h1>
-            
-                <div class="post-meta">
-                    
+                
 
                     
-                        <span class="post-time">
-                        Date: <a href="#">May 29, 2023&nbsp;&nbsp;21:36:49</a>
-                        </span>
-                    
-                    
-                </div>
-            
-        </header>
+                        <article class="post-wrap">
+                            <header class="post-header">
+                                <h1 class="post-title">
+                                    Convert TF model sang PyTorch
+                                </h1>
+                                
+                                    <div class="post-meta">
+                                        
 
-        <div class="post-content">
-            <h1 id="I-Gioi-thieu"><a href="#I-Gioi-thieu" class="headerlink" title="I. Giới thiệu"></a>I. Giới thiệu</h1><p>Còn nhớ hồi mình mới học về Machine Learning (cách đây khoảng 2-3 năm) các bài hướng dẫn trên Blog, YouTube, GitHub đều xài TensorFlow. PyTorch là một FrameWork được Facebook phát triển, tuy ra đời sau nhưng càng ngày càng nhận được sự quan tâm và sử dụng của cộng đồng, lý giải cho sự phát triển nhanh chóng của PyTorch có thể đến từ việc nó xây dựng trên Python (mà Python lại là ngôn ngữ chính được sử dụng trong các task về Machine Learning &#x2F; Deep Learning), hiệu suất, tính tinh hoạt, tận dụng được việc tính toán song song trên nhiều GPU… </p>
+                                                
+                                                    <span class="post-time">
+                                                        Date: <a href="#">May 29, 2023&nbsp;&nbsp;21:36:49</a>
+                                                    </span>
+                                                    
+                                                        
+                                                            <span class="reading-time">5 min read</span>
+                                                                
+                                                                    
+                                    </div>
+                                    
+                            </header>
+
+                            <div class="post-content">
+                                <h2 id="I-Gioi-thieu"><a href="#I-Gioi-thieu" class="headerlink" title="I. Giới thiệu"></a>I. Giới thiệu</h2><p>Còn nhớ hồi mình mới học về Machine Learning (cách đây khoảng 2-3 năm) các bài hướng dẫn trên Blog, YouTube, GitHub đều xài TensorFlow. PyTorch là một FrameWork được Facebook phát triển, tuy ra đời sau nhưng càng ngày càng nhận được sự quan tâm và sử dụng của cộng đồng, lý giải cho sự phát triển nhanh chóng của PyTorch có thể đến từ việc nó xây dựng trên Python (mà Python lại là ngôn ngữ chính được sử dụng trong các task về Machine Learning &#x2F; Deep Learning), hiệu suất, tính tinh hoạt, tận dụng được việc tính toán song song trên nhiều GPU…</p>
 <p>Một thống kê trên HuggingFace về mức độ phổ biến giữa 2 Framework, có đến 92% model sử dụng PyTorch để phát triển mô hình từ đó có thể thấy được mức độ phổ biến của PyTorch là như thế nào.</p>
 <p><img src="https://i.imgur.com/ZLFlavF.png" alt="Number of Models in HuggingFace"></p>
 <p>Thêm một thống kê nữa để chỉ ra sự chuyển dịch của các nhà phát triển từ TensorFlow sang PyTorch.</p>
@@ -240,7 +247,7 @@
 <li>Tiến hành copy weights (các trọng số) từ checkpoints TF sang model PyTorch</li>
 </ul>
 <p>Chi tiết thực hiện sẽ được trình bày trong mục 2</p>
-<h1 id="II-Thuc-nghiem"><a href="#II-Thuc-nghiem" class="headerlink" title="II. Thực nghiệm"></a>II. Thực nghiệm</h1><p>Mô hình TensorFlow của mình ở đây có nhiệm vụ phân loại 31 ký tự trong bảng chữ cái, kiến trúc model sẽ như sau</p>
+<h2 id="II-Thuc-nghiem"><a href="#II-Thuc-nghiem" class="headerlink" title="II. Thực nghiệm"></a>II. Thực nghiệm</h2><p>Mô hình TensorFlow của mình ở đây có nhiệm vụ phân loại 31 ký tự trong bảng chữ cái, kiến trúc model sẽ như sau</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># TensorFlow model</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">_build_model_tensorflow</span>(<span class="params">self</span>):</span><br><span class="line">        self.model = Sequential()</span><br><span class="line">        self.model.add(Conv2D(<span class="number">32</span>, (<span class="number">3</span>, <span class="number">3</span>), padding=<span class="string">&quot;same&quot;</span>, activation=<span class="string">&quot;relu&quot;</span>, input_shape=(<span class="number">28</span>, <span class="number">28</span>, <span class="number">1</span>)))</span><br><span class="line">        self.model.add(Conv2D(<span class="number">32</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&quot;relu&quot;</span>))</span><br><span class="line">        self.model.add(MaxPooling2D(pool_size=(<span class="number">2</span>, <span class="number">2</span>)))</span><br><span class="line">        self.model.add(Dropout(<span class="number">0.25</span>))</span><br><span class="line"></span><br><span class="line">        self.model.add(Conv2D(<span class="number">64</span>, (<span class="number">3</span>, <span class="number">3</span>), padding=<span class="string">&quot;same&quot;</span>, activation=<span class="string">&quot;relu&quot;</span>))</span><br><span class="line">        self.model.add(Conv2D(<span class="number">64</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&quot;relu&quot;</span>))</span><br><span class="line">        self.model.add(MaxPooling2D(pool_size=(<span class="number">2</span>, <span class="number">2</span>)))</span><br><span class="line">        self.model.add(Dropout(<span class="number">0.25</span>))</span><br><span class="line"></span><br><span class="line">        self.model.add(Conv2D(<span class="number">64</span>, (<span class="number">3</span>, <span class="number">3</span>), padding=<span class="string">&quot;same&quot;</span>, activation=<span class="string">&quot;relu&quot;</span>))</span><br><span class="line">        self.model.add(Conv2D(<span class="number">64</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&quot;relu&quot;</span>))</span><br><span class="line">        self.model.add(MaxPooling2D(pool_size=(<span class="number">2</span>, <span class="number">2</span>)))</span><br><span class="line">        self.model.add(Dropout(<span class="number">0.25</span>))</span><br><span class="line"></span><br><span class="line">        self.model.add(Flatten())</span><br><span class="line">        self.model.add(Dense(<span class="number">512</span>, activation=<span class="string">&quot;relu&quot;</span>))</span><br><span class="line">        self.model.add(Dropout(<span class="number">0.5</span>))</span><br><span class="line">        self.model.add(Dense(<span class="number">32</span>, activation=<span class="string">&quot;softmax&quot;</span>))</span><br></pre></td></tr></table></figure>
 
 <p>Có thể thấy đây là một mạng CNN với các lớp Conv2D, MaxPooling… rất cơ bản, bây giờ chúng ta cần build một model PyTorch với kiến trúc tương tự như vậy:</p>
@@ -248,52 +255,52 @@
 
 <p>Thoạt nhìn qua thì thấy model PyTorch dài hơn TensorFlow nhỉ? Tuy nhiên nếu nhìn kỹ thì sẽ thấy các layer của model PyTorch hoàn toàn tương tự với TF (việc nhìn kỹ thì các bạn tự nhìn nhé 👀)</p>
 <p>Sau khi đã build được kiến trúc model tương tự rồi, công việc tiếp theo là copy weights từ model cũ sang model mới</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> keras.models <span class="keyword">import</span> load_model</span><br><span class="line"></span><br><span class="line"><span class="comment"># Load the TF model</span></span><br><span class="line">keras_model = load_model(<span class="string">&quot;checkpoints/classify_character.h5&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Get the TF model&#x27;s weights as a NumPy array</span></span><br><span class="line">keras_weights = keras_model.get_weights()</span><br><span class="line"></span><br><span class="line"><span class="comment"># Init PyTorch Model</span></span><br><span class="line">torch_model = Build_Model_PyTorch()</span><br><span class="line"></span><br><span class="line"><span class="comment"># Copy weights</span></span><br><span class="line"><span class="keyword">for</span> i, (name, param) <span class="keyword">in</span> <span class="built_in">enumerate</span>(torch_model.named_parameters()):</span><br><span class="line">        <span class="keyword">if</span> <span class="string">&quot;weight&quot;</span> <span class="keyword">in</span> name:</span><br><span class="line">            w = torch.from_numpy(keras_weights[i])</span><br><span class="line">							</span><br><span class="line">			<span class="comment"># Convert dimensions</span></span><br><span class="line">            <span class="keyword">if</span> w.dim() == <span class="number">3</span>:</span><br><span class="line">                w = w.t()</span><br><span class="line">            <span class="keyword">elif</span> w.dim() == <span class="number">1</span>:</span><br><span class="line">                <span class="keyword">pass</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">assert</span> w.dim() == <span class="number">4</span></span><br><span class="line">                w = w.permute(<span class="number">3</span>, <span class="number">2</span>, <span class="number">0</span>, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">            param.data = w</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Save the PyTorch model&#x27;s weights</span></span><br><span class="line">    torch.save(torch_model.state_dict(), <span class="string">&quot;checkpoints/classify_character.pt&quot;</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> keras.models <span class="keyword">import</span> load_model</span><br><span class="line"></span><br><span class="line"><span class="comment"># Load the TF model</span></span><br><span class="line">keras_model = load_model(<span class="string">&quot;checkpoints/classify_character.h5&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Get the TF model&#x27;s weights as a NumPy array</span></span><br><span class="line">keras_weights = keras_model.get_weights()</span><br><span class="line"></span><br><span class="line"><span class="comment"># Init PyTorch Model</span></span><br><span class="line">torch_model = Build_Model_PyTorch()</span><br><span class="line"></span><br><span class="line"><span class="comment"># Copy weights</span></span><br><span class="line"><span class="keyword">for</span> i, (name, param) <span class="keyword">in</span> <span class="built_in">enumerate</span>(torch_model.named_parameters()):</span><br><span class="line">        <span class="keyword">if</span> <span class="string">&quot;weight&quot;</span> <span class="keyword">in</span> name:</span><br><span class="line">            w = torch.from_numpy(keras_weights[i])</span><br><span class="line"></span><br><span class="line">			<span class="comment"># Convert dimensions</span></span><br><span class="line">            <span class="keyword">if</span> w.dim() == <span class="number">3</span>:</span><br><span class="line">                w = w.t()</span><br><span class="line">            <span class="keyword">elif</span> w.dim() == <span class="number">1</span>:</span><br><span class="line">                <span class="keyword">pass</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">assert</span> w.dim() == <span class="number">4</span></span><br><span class="line">                w = w.permute(<span class="number">3</span>, <span class="number">2</span>, <span class="number">0</span>, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">            param.data = w</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Save the PyTorch model&#x27;s weights</span></span><br><span class="line">    torch.save(torch_model.state_dict(), <span class="string">&quot;checkpoints/classify_character.pt&quot;</span>)</span><br></pre></td></tr></table></figure>
 
 <p>Ở đây có một điểm mà chúng ta cần lưu ý, mô hình TF làm việc với input [B, H, W, C] trong khi PyTorch lại input là [B, C, H, W] (Batch_size, Channel, Height, Width), chính vì vậy mới cần thêm <code>Convert dimensions</code>.</p>
 <p>Ví dụ với sample bên dưới, input cho model TF là [1, 28, 28, 1] thì qua mô hình PyTorch sẽ là [1, 1, 28, 28].</p>
 <p><img src="https://i.imgur.com/2FBZDsK.png" alt="Samples"></p>
-<h1 id="III-Ket-qua"><a href="#III-Ket-qua" class="headerlink" title="III. Kết quả"></a>III. Kết quả</h1><p>Từ trên xuống dưới lần lượt là kết quả dự đoán của mô hình TF và PyTorch.</p>
+<h2 id="III-Ket-qua"><a href="#III-Ket-qua" class="headerlink" title="III. Kết quả"></a>III. Kết quả</h2><p>Từ trên xuống dưới lần lượt là kết quả dự đoán của mô hình TF và PyTorch.</p>
 <p><img src="https://i.imgur.com/hU8J4p3.png" alt="Compare TF with PyTorch"></p>
-<p>Hy vọng hướng dẫn này sẽ hữu ích cho những bạn nào cần thực hiện convert model như mình. </p>
+<p>Hy vọng hướng dẫn này sẽ hữu ích cho những bạn nào cần thực hiện convert model như mình.</p>
 <p>Bái bai và hẹn gặp lại trong những bài viết tiếp theo 🫵</p>
-<h1 id="IV-References"><a href="#IV-References" class="headerlink" title="IV. References"></a>IV. References</h1><ul>
+<h2 id="IV-References"><a href="#IV-References" class="headerlink" title="IV. References"></a>IV. References</h2><ul>
 <li><a target="_blank" rel="noopener" href="https://github.com/KudoKhang/CodeInBlog/tree/main/TF2Torch">Code in GitHub</a></li>
 <li><a target="_blank" rel="noopener" href="https://github.com/onnx/tensorflow-onnx">TensorFlow to ONNX</a></li>
 <li><a target="_blank" rel="noopener" href="https://www.assemblyai.com/blog/pytorch-vs-tensorflow-in-2023/">PyTorch and TensorFlow in 2023</a></li>
 </ul>
 
-        </div>
+                            </div>
 
-        
-        <section class="post-tags">
-            <div>
-                <span>Tag(s):</span>
-                <span class="tag">
-                    
-                    
-                        <a href="/tags/Technical/"># Technical</a>
-                    
-                        
-                </span>
-            </div>
-            <div>
-                <a href="javascript:window.history.back();">back</a>
-                <span>· </span>
-                <a href="/">home</a>
-            </div>
-        </section>
-        <section class="post-nav">
-            
-                <a class="prev" rel="prev" href="/2023/06/03/Python-Template-Project-cho-mot-du-an-AI/">Python Template Project cho một dự án AI</a>
-            
-            
-            <a class="next" rel="next" href="/2023/05/20/Bai-Viet-Dau-Tien/">Bài viết đầu tiên</a>
-            
-        </section>
+                            
+                                    <section class="post-tags">
+                                        <div>
+                                            <span>Tag(s):</span>
+                                            <span class="tag">
+                                                
+                                                    
+                                                        <a href="/tags/Technical/"># Technical</a>
+                                                        
+                                                            
+                                            </span>
+                                        </div>
+                                        <div>
+                                            <a href="javascript:window.history.back();">back</a>
+                                            <span>· </span>
+                                            <a href="/">home</a>
+                                        </div>
+                                    </section>
+                                    <section class="post-nav">
+                                        
+                                            <a class="prev" rel="prev" href="/2023/06/03/Python-Template-Project-cho-mot-du-an-AI/">Python Template Project cho một dự án AI</a>
+                                            
+                                                
+                                                    <a class="next" rel="next" href="/2023/05/20/Bai-Viet-Dau-Tien/">Bài viết đầu tiên</a>
+                                                    
+                                    </section>
 
 
-    </article>
+                        </article>
 </div>
 
 

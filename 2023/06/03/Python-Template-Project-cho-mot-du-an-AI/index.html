@@ -35,6 +35,8 @@
     
     <script src="/js/tocbot.min.js"></script>
     
+    <script src="/js/enhancements.js"></script>
+    
 
 
 
@@ -141,8 +143,8 @@
             <div class="main">
                 <div class="container">
     
-    
-        <div class="post-toc">
+        
+            <div class="post-toc">
     <div class="tocbot-list">
     </div>
     <div class="tocbot-list-menu">
@@ -206,30 +208,35 @@
         return target;
     }
 </script>
-    
-
-    
-    <article class="post-wrap">
-        <header class="post-header">
-            <h1 class="post-title">Python Template Project cho một dự án AI</h1>
-            
-                <div class="post-meta">
-                    
+                
 
                     
-                        <span class="post-time">
-                        Date: <a href="#">June 3, 2023&nbsp;&nbsp;21:11:50</a>
-                        </span>
-                    
-                    
-                </div>
-            
-        </header>
+                        <article class="post-wrap">
+                            <header class="post-header">
+                                <h1 class="post-title">
+                                    Python Template Project cho một dự án AI
+                                </h1>
+                                
+                                    <div class="post-meta">
+                                        
 
-        <div class="post-content">
-            <h1 id="I-Mo-dau"><a href="#I-Mo-dau" class="headerlink" title="I. Mở đầu"></a>I. Mở đầu</h1><p>Chúng ta thường nghe việc tổ chức source code, viết code sạch code đẹp (clean code) là một việc rất quan trọng trong công việc viết phần mềm, một source code được tổ chức tốt, code tuân theo convention sẽ giúp cho các lập trình viên có thể phối hợp phát triển dự án một cách dễ dàng hơn, giảm thiểu conflict, dễ dàng mở rộng thêm các tính năng mới và bảo trì sau này.</p>
+                                                
+                                                    <span class="post-time">
+                                                        Date: <a href="#">June 3, 2023&nbsp;&nbsp;21:11:50</a>
+                                                    </span>
+                                                    
+                                                        
+                                                            <span class="reading-time">4 min read</span>
+                                                                
+                                                                    
+                                    </div>
+                                    
+                            </header>
+
+                            <div class="post-content">
+                                <h2 id="I-Mo-dau"><a href="#I-Mo-dau" class="headerlink" title="I. Mở đầu"></a>I. Mở đầu</h2><p>Chúng ta thường nghe việc tổ chức source code, viết code sạch code đẹp (clean code) là một việc rất quan trọng trong công việc viết phần mềm, một source code được tổ chức tốt, code tuân theo convention sẽ giúp cho các lập trình viên có thể phối hợp phát triển dự án một cách dễ dàng hơn, giảm thiểu conflict, dễ dàng mở rộng thêm các tính năng mới và bảo trì sau này.</p>
 <p>Trong bài viết này mình xin giới thiệu template cho một AI project mà mình đang áp dụng cho những dự án gần đây.</p>
-<h1 id="II-Cau-truc-du-an"><a href="#II-Cau-truc-du-an" class="headerlink" title="II. Cấu trúc dự án"></a>II. Cấu trúc dự án</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">├── checkpoints</span><br><span class="line">├── conf</span><br><span class="line">│   └── config.yaml</span><br><span class="line">├── data</span><br><span class="line">│   └── logo.png</span><br><span class="line">├── docker</span><br><span class="line">│   ├── Dockerfile</span><br><span class="line">│   └── Dockerfile.dev</span><br><span class="line">├── docs</span><br><span class="line">│   └── README.md</span><br><span class="line">├── python_project_template</span><br><span class="line">│   └── utils</span><br><span class="line">│       ├── __init__.py</span><br><span class="line">│       ├── config.py</span><br><span class="line">│       ├── downloader.py</span><br><span class="line">│       └── logger.py</span><br><span class="line">├── scripts</span><br><span class="line">│   ├── helpers</span><br><span class="line">│   │   └── download_checkpoints.py</span><br><span class="line">│   └── inference.py</span><br><span class="line">└── tests</span><br><span class="line">│    └── test_read_config.py</span><br><span class="line">├── requirements.txt</span><br><span class="line">├── .dockerignore</span><br><span class="line">├── docker-compose.yml</span><br><span class="line">├── .flake8</span><br><span class="line">├── .gitignore</span><br><span class="line">├── pyproject.toml</span><br><span class="line">├── .pre-commit-config.yaml</span><br><span class="line">├── README.md</span><br></pre></td></tr></table></figure>
+<h2 id="II-Cau-truc-du-an"><a href="#II-Cau-truc-du-an" class="headerlink" title="II. Cấu trúc dự án"></a>II. Cấu trúc dự án</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">├── checkpoints</span><br><span class="line">├── conf</span><br><span class="line">│   └── config.yaml</span><br><span class="line">├── data</span><br><span class="line">│   └── logo.png</span><br><span class="line">├── docker</span><br><span class="line">│   ├── Dockerfile</span><br><span class="line">│   └── Dockerfile.dev</span><br><span class="line">├── docs</span><br><span class="line">│   └── README.md</span><br><span class="line">├── python_project_template</span><br><span class="line">│   └── utils</span><br><span class="line">│       ├── __init__.py</span><br><span class="line">│       ├── config.py</span><br><span class="line">│       ├── downloader.py</span><br><span class="line">│       └── logger.py</span><br><span class="line">├── scripts</span><br><span class="line">│   ├── helpers</span><br><span class="line">│   │   └── download_checkpoints.py</span><br><span class="line">│   └── inference.py</span><br><span class="line">└── tests</span><br><span class="line">│    └── test_read_config.py</span><br><span class="line">├── requirements.txt</span><br><span class="line">├── .dockerignore</span><br><span class="line">├── docker-compose.yml</span><br><span class="line">├── .flake8</span><br><span class="line">├── .gitignore</span><br><span class="line">├── pyproject.toml</span><br><span class="line">├── .pre-commit-config.yaml</span><br><span class="line">├── README.md</span><br></pre></td></tr></table></figure>
 
 <p>Dưới đây sẽ là giải thích chức năng cho từng file và module</p>
 <p><strong>checkpoints</strong>: Thư mục chứa các checkpoint của mô hình phục vụ cho quá trình inference 🦥</p>
@@ -249,42 +256,42 @@
 <p><strong>.pre-commit-config.yaml</strong>: pre-commit là một công cụ giúp kiểm tra và tự động refactor code theo chuẩn PEP8 convention. Các kịch bản kiểm tra sẽ được thiết lập, định nghĩa tại đây ✅.</p>
 <p><strong>README.md</strong>: Và cuối cùng là file README.md nhằm mô tả, hướng dẫn những thông tin của project. Phần này mình follow theo repo <a target="_blank" rel="noopener" href="https://github.com/othneildrew/Best-README-Template">Best-README-Template</a> (~11k⭐)</p>
 <p>Trên đây là template cho một AI module project mà mình đang áp dụng, tùy vào tính chất dự án mà bạn đang thực hiện, có thể thêm hoặc bớt để cho phù hợp nhất. Nếu bạn có ideas gì để giúp template này hoàn thiện hơn, rất welcome các bạn contributing để repo hoàn hoàn thiện hơn 🙆🏻‍♂️</p>
-<h1 id="III-References"><a href="#III-References" class="headerlink" title="III. References"></a>III. References</h1><ul>
+<h2 id="III-References"><a href="#III-References" class="headerlink" title="III. References"></a>III. References</h2><ul>
 <li><a target="_blank" rel="noopener" href="https://github.com/KudoKhang/python-project-template">python-project-template</a></li>
 <li><a target="_blank" rel="noopener" href="https://github.com/tomas-gajarsky/facetorch">facetorch</a> (template mình xây dựng học hỏi từ repo này mọi người nhé)</li>
 </ul>
 
-        </div>
+                            </div>
 
-        
-        <section class="post-tags">
-            <div>
-                <span>Tag(s):</span>
-                <span class="tag">
-                    
-                    
-                        <a href="/tags/Technical/"># Technical</a>
-                    
-                        
-                </span>
-            </div>
-            <div>
-                <a href="javascript:window.history.back();">back</a>
-                <span>· </span>
-                <a href="/">home</a>
-            </div>
-        </section>
-        <section class="post-nav">
-            
-                <a class="prev" rel="prev" href="/2024/01/06/Tuy-chinh-Terminal-Nang-cao-hieu-suat-va-trai-nghiem-go-code/">Tùy chỉnh Terminal: Nâng cao hiệu suất và trải nghiệm gõ code</a>
-            
-            
-            <a class="next" rel="next" href="/2023/05/29/Convert-TF-model-sang-PyTorch/">Convert TF model sang PyTorch</a>
-            
-        </section>
+                            
+                                    <section class="post-tags">
+                                        <div>
+                                            <span>Tag(s):</span>
+                                            <span class="tag">
+                                                
+                                                    
+                                                        <a href="/tags/Technical/"># Technical</a>
+                                                        
+                                                            
+                                            </span>
+                                        </div>
+                                        <div>
+                                            <a href="javascript:window.history.back();">back</a>
+                                            <span>· </span>
+                                            <a href="/">home</a>
+                                        </div>
+                                    </section>
+                                    <section class="post-nav">
+                                        
+                                            <a class="prev" rel="prev" href="/2024/01/06/Tuy-chinh-Terminal-Nang-cao-hieu-suat-va-trai-nghiem-go-code/">Tùy chỉnh Terminal: Nâng cao hiệu suất và trải nghiệm gõ code</a>
+                                            
+                                                
+                                                    <a class="next" rel="next" href="/2023/05/29/Convert-TF-model-sang-PyTorch/">Convert TF model sang PyTorch</a>
+                                                    
+                                    </section>
 
 
-    </article>
+                        </article>
 </div>
 
 
