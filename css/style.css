@@ -1509,6 +1509,162 @@ pre:hover .copy-code-btn,
   content: "📖 ";
   margin-right: 2px;
 }
+.projects-section {
+  margin-top: 3rem;
+  border-top: 1px solid rgba(0,0,0,0.1);
+  padding-top: 2rem;
+}
+.dark-theme .projects-section {
+  border-top-color: rgba(255,255,255,0.1);
+}
+.section-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  text-align: center;
+  position: relative;
+  display: block;
+}
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 3px;
+  background: var(--primary-color, #ff6b6b);
+}
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 1rem 0;
+}
+.project-card {
+  background: rgba(255,255,255,0.03);
+  border: 2px solid rgba(0,0,0,0.05);
+  border-radius: 8px;
+  padding: 1.5rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.project-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--primary-color, #ff6b6b);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+.project-card .project-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+.project-card .project-header .project-icon {
+  font-size: 1.5rem;
+  opacity: 0.8;
+}
+.project-card .project-title {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: inherit;
+}
+.project-card .project-description {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 1rem 0;
+  opacity: 0.8;
+  flex-grow: 1;
+}
+.project-card .project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+.project-card .project-tech .tech-tag {
+  font-size: 0.75rem;
+  padding: 0.2rem 0.6rem;
+  background: rgba(0,0,0,0.05);
+  border-radius: 4px;
+  font-weight: 500;
+}
+.project-card .project-links {
+  display: flex;
+  gap: 1rem;
+}
+.project-card .project-links a {
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  color: var(--primary-color, #ff6b6b);
+}
+.project-card .project-links a:hover {
+  text-decoration: underline;
+}
+.dark-theme .project-card {
+  background: rgba(255,255,255,0.02);
+  border-color: rgba(255,255,255,0.05);
+}
+.dark-theme .project-card:hover {
+  border-color: var(--primary-color-dark, #4ecdc4);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+  background: rgba(255,255,255,0.04);
+}
+.dark-theme .project-tech .tech-tag {
+  background: rgba(255,255,255,0.05);
+}
+.dark-theme .project-links a {
+  color: var(--primary-color-dark, #4ecdc4);
+}
+@media screen and (max-width: 600px) {
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.floating-shapes-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.6;
+}
+.profile-container {
+  position: relative;
+}
+.profile-container .intro {
+  position: relative;
+  z-index: 1;
+}
+@media screen and (max-width: 768px) {
+  .floating-shapes-canvas {
+    opacity: 0.3;
+  }
+}
+.typing-cursor {
+  display: inline;
+  font-weight: 400;
+  animation: blink 1s infinite;
+  color: var(--primary-color, #ff6b6b);
+}
+.dark-theme .typing-cursor {
+  color: var(--primary-color-dark, #4ecdc4);
+}
+.profile-container .description {
+  line-height: 1.6;
+  transition: opacity 0.3s ease;
+}
 .dark-theme .reading-time {
   background: rgba(78,205,196,0.1);
   color: #4ecdc4;
@@ -1529,5 +1685,37 @@ pre:hover .copy-code-btn,
   }
   .back-to-top {
     border-width: 2px;
+  }
+}
+@-moz-keyframes blink {
+  0%, 49% {
+    opacity: 1;
+  }
+  50%, 100% {
+    opacity: 0;
+  }
+}
+@-webkit-keyframes blink {
+  0%, 49% {
+    opacity: 1;
+  }
+  50%, 100% {
+    opacity: 0;
+  }
+}
+@-o-keyframes blink {
+  0%, 49% {
+    opacity: 1;
+  }
+  50%, 100% {
+    opacity: 0;
+  }
+}
+@keyframes blink {
+  0%, 49% {
+    opacity: 1;
+  }
+  50%, 100% {
+    opacity: 0;
   }
 }
