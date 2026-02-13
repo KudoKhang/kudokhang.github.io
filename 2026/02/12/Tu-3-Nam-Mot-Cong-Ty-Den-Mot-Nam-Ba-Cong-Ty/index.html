@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="vn">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Kudo Khang">
+
+
+
+
+
+<title>Từ 3 Năm Một Công Ty Đến Một Năm Ba Công Ty - Nhìn Lại Năm 2025 Đầy Biến Động | Khang&#39;s blogs</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+    <script src="/js/enhancements.js"></script>
+    
+    <script src="/js/homepage-animation.js"></script>
+    
+    <script src="/js/typing-effect.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@11.12.0/dist/mermaid.min.js"></script>
+    <script>
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'default',
+            securityLevel: 'loose',
+            
+            
+            
+        });
+    </script>
+
+
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Khang&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Khang&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+        
+            <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+                
+
+                    
+                        <article class="post-wrap">
+                            <header class="post-header">
+                                <h1 class="post-title">
+                                    Từ 3 Năm Một Công Ty Đến Một Năm Ba Công Ty - Nhìn Lại Năm 2025 Đầy Biến Động
+                                </h1>
+                                
+                                    <div class="post-meta">
+                                        
+
+                                                
+                                                    <span class="post-time">
+                                                        Date: <a href="#">February 12, 2026&nbsp;&nbsp;10:00:00</a>
+                                                    </span>
+                                                    
+                                                        
+                                                            <span class="reading-time">6 min read</span>
+                                                                
+                                                                    
+                                    </div>
+                                    
+                            </header>
+
+                            <div class="post-content">
+                                <p>Đầu năm 2025, kế hoạch của mình gói gọn trong hai chữ: <strong>“Ổn định”</strong>. Vợ đang mang bầu, mình chỉ mong một năm bình yên tại FTECH – nơi mình đã gắn bó hơn 3 năm – để dành trọn thời gian chăm lo cho gia đình nhỏ. Nhưng đúng là “đời không như là mơ”, và năm 2025 đã dạy mình rằng sự ổn định đôi khi chỉ là một ảo tưởng nếu chúng ta ngừng chuẩn bị cho những biến động.</p>
+<p>Nhân dịp những ngày cuối năm, ngồi gõ những dòng này khi đã vượt qua 2 tháng thử việc tại bến đỗ mới, mình muốn nhìn lại hành trình “vượt bão” của một năm vừa qua.</p>
+<p>Giờ thì vào bài thôi 🚀</p>
+<h2 id="I-Bien-co-dau-tien-Khi-“on-dinh”-bong-choc-tan-bien"><a href="#I-Bien-co-dau-tien-Khi-“on-dinh”-bong-choc-tan-bien" class="headerlink" title="I. Biến cố đầu tiên: Khi “ổn định” bỗng chốc tan biến"></a>I. Biến cố đầu tiên: Khi “ổn định” bỗng chốc tan biến</h2><p>Cái tin layoff từ FTECH đến vào lúc mình ít ngờ tới nhất. Hơn 3 năm gắn bó, mọi quy trình, con người đã trở nên quá quen thuộc. Giữa lúc vợ bầu bí, cần sự ổn định nhất thì “cơn bão” layoff quét qua. Thật sự lúc đó mình khá sốc 🥹.</p>
+<p>Tuy nhiên, có lẽ nhờ những năm tháng tích lũy, mình nhanh chóng lao vào phỏng vấn và may mắn có ngay offer tốt từ công ty thứ 2. Mọi thứ lúc đó tưởng chừng đã suôn sẻ trở lại, mình tự nhủ: “Chắc ông trời chỉ muốn thử thách mình tí thôi”.</p>
+<h2 id="II-Bien-co-thu-hai-Khi-vua-don-con-chao-doi-cung-la-luc…-nghi-viec"><a href="#II-Bien-co-thu-hai-Khi-vua-don-con-chao-doi-cung-la-luc…-nghi-viec" class="headerlink" title="II. Biến cố thứ hai: Khi vừa đón con chào đời cũng là lúc… nghỉ việc"></a>II. Biến cố thứ hai: Khi vừa đón con chào đời cũng là lúc… nghỉ việc</h2><p>Ở công ty thứ 2, mình bắt đầu làm quen với một môi trường mới: làm Backend (BE). Dù trước đó chuyên về AI Computer Vision, nhưng mình rất hào hứng vì được học thêm skill mới. Mức đãi ngộ tốt, công việc đang dần vào guồng thì… bùm! Một số vấn đề nảy sinh với CEO khiến mình buộc phải đưa ra quyết định nghỉ việc.</p>
+<p>Trớ trêu thay, đó cũng là lúc vợ mình vừa mới sinh con.</p>
+<p>Mất việc ngay lúc gia đình đón thành viên mới, áp lực tài chính và tinh thần đè nặng. Thật sự đây là giai đoạn thử thách bản lĩnh kinh khủng nhất. Rất may mắn, mình vẫn duy trì “nghề tay trái” là đi dạy lập trình và nhận các <a href="/2025/11/07/$1000-Dau-Tien-Tren-UpWork/" title="job freelance trên Upwork">job freelance trên Upwork</a>. Chính những khoản thu nhập này đã trở thành “phao cứu sinh” giúp mình lèo lái con thuyền gia đình qua những ngày giông bão đó 👊.</p>
+<h2 id="III-3-thang-tim-viec-va-nhung-bai-hoc-dat-gia"><a href="#III-3-thang-tim-viec-va-nhung-bai-hoc-dat-gia" class="headerlink" title="III. 3 tháng tìm việc và những bài học đắt giá"></a>III. 3 tháng tìm việc và những bài học đắt giá</h2><p>Tiếp sau đó là hơn 3 tháng tìm việc giữa lúc thị trường đang cực kỳ khó khăn. Mình đã đi phỏng nhiều khắp nơi, tiếp xúc với đủ kiểu người:</p>
+<ul>
+<li>Có những buổi phỏng vấn như một cuộc trao đổi kiến thức đỉnh cao, nơi mình được “wow” vì trình độ và sự cởi mở của họ.</li>
+<li>Cũng có những nơi hỏi đáp rập khuôn, máy móc như thể họ đang đọc kịch bản có sẵn.</li>
+<li>Và không thiếu những màn “phỏng vấn ảo” – tuyển cho có tên tuổi chứ thực chất không có job 😅.</li>
+</ul>
+<p>Nhưng quan trọng nhất, 3 tháng đó không phải là quãng thời gian mình chỉ đi “xin việc”. Đó là 3 tháng mình “cày cuốc” khủng khiếp nhất. Mình tự học thêm các stack công nghệ mới, bắt tay vào build những sản phẩm cá nhân để giải quyết các nỗi đau thực tế (như cái dự án <strong>LectureHub</strong> mình có kể ở <a href="/2025/08/18/LectureHub-Introduction/" title="bài trước">bài trước</a>).</p>
+<p>Các con số thì không biết nói dối, nhìn vào dải màu xanh trên GitHub cá nhân của mình trong giai đoạn đó, đó chính là bằng chứng cho sự nỗ lực không ngừng nghỉ. Mình nhận ra rằng: <strong>Học phải đi đôi với hành</strong>.</p>
+<center>
+  <img src="https://i.ibb.co/BVGg5S9y/git-history.png" alt="Git history" border="0">
+  <br>
+  <i>Phần graph có nhiều điểm xanh chính là đợt ở nhà miệt mài code và commit</i>
+</center>
+
+<blockquote>
+<p>Trong thời đại AI bùng nổ như hiện nay, việc hiện thực hóa ý tưởng thành sản phẩm trở nên dễ dàng hơn trước rất nhiều. Công cụ hỗ trợ tận răng, tài liệu ở khắp mọi nơi, lý do duy nhất khiến bạn không có sản phẩm là do bạn chưa bắt đầu thôi.</p>
+</blockquote>
+<p>Lời khuyên chân thành của mình cho các bạn đang chuẩn bị đi phỏng vấn: Hãy thử tự tay build 1-2 sản phẩm hoàn chỉnh (từ ý tưởng đến deploy). Khi đó, buổi phỏng vấn sẽ không còn là một bài khảo sát lý thuyết khô khan, mà là một buổi “khoe đồ chơi”, nơi bạn có thể tự tin nói về những bài toán thực tế bạn đã giải quyết. Nhà tuyển dụng chắc chắn sẽ đánh giá cao sự chủ động này hơn là những câu trả lời thuộc lòng trong sách giáo khoa.</p>
+<p>Cuối cùng, mình pass vào công ty thứ 3 theo một quy trình “thần tốc”: Thứ 5 Pv, Thứ 6 báo Pass, Thứ 2 đi làm luôn. Dù lương bị giảm sâu so với mức mình kỳ vọng, nhưng giữa lúc “bão” đang to, mình phải chấp nhận để có một bến đỗ tạm thời.</p>
+<p>Nhưng đúng là nếu tính chất công việc không có sự đổi mới, thiếu sáng tạo và không được chủ động, người làm kỹ thuật rất dễ bị “nản”. Đó là lúc mình bắt đầu lướt LinkedIn và bắt gặp một cái duyên mới.</p>
+<h2 id="IV-Ben-do-hien-tai-Cai-duyen-“AI-nup-bong-BE”"><a href="#IV-Ben-do-hien-tai-Cai-duyen-“AI-nup-bong-BE”" class="headerlink" title="IV. Bến đỗ hiện tại: Cái duyên “AI núp bóng BE”"></a>IV. Bến đỗ hiện tại: Cái duyên “AI núp bóng BE”</h2><p>Vô tình thấy HR bên công ty hiện tại tuyển BE với yêu cầu rất cao. Dù nghĩ mình không đủ điều kiện nhưng cứ vào hỏi thử xem sao. Hóa ra, họ cũng đang cần mảng AI!</p>
+<p>Mọi thứ diễn ra rất nhanh. Mình được anh CTO trực tiếp phỏng vấn và đánh giá tốt. Bây giờ, sau 2 tháng thử việc, mình đang được làm việc dưới sự mentor trực tiếp từ ảnh. Môi trường thoải mái, đồng nghiệp nhiệt tình, và quan trọng nhất là công việc luôn đòi hỏi sự đổi mới sáng tạo – đúng thứ mình hằng tìm kiếm 😉.</p>
+<p><img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExbTd0Y3R0MXpldm8xNHJvOGNhbTFwa2p1MDMxbDUzdTNoMW5obTFwNiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/SYCNMcX7puxtsaV1mJ/giphy.gif" alt="Gif cảm thấy phù hợp"></p>
+<h2 id="V-Ket-Thich-nghi-hay-la-chet"><a href="#V-Ket-Thich-nghi-hay-la-chet" class="headerlink" title="V. Kết: Thích nghi hay là chết?"></a>V. Kết: Thích nghi hay là chết?</h2><p>Nhìn lại năm 2025, từ một người muốn ổn định đến việc trải qua 3 công ty trong 1 năm, mình thấy bản thân đã trưởng thành hơn rất nhiều. Dù năm nay hơi buồn vì không có thưởng Tết 🥹, nhưng bù lại, mình có được một môi trường tốt và những bài học xương máu.</p>
+<p>Trong một thị trường biến động mạnh bởi tác động của AI như hiện nay, mình rút ra được 3 điều:</p>
+<ol>
+<li><strong>Nâng cao chất lượng bản thân:</strong> Chỉ có nội lực mới giúp bạn đứng vững khi “bão” tới.</li>
+<li><strong>Kế hoạch dự phòng:</strong> Đừng bao giờ bỏ trứng vào một giỏ. Nghề tay trái, freelance… đôi khi là “phao cứu sinh” lúc ngặt nghèo.</li>
+<li><strong>Luôn cố gắng &amp; Thích nghi:</strong> Không có gì là ổn định vĩnh viễn, chỉ có khả năng thích nghi là vĩnh cửu.</li>
+</ol>
+<p>Cảm ơn mọi người đã lắng nghe câu chuyện của mình. Chúc anh em đồng nghiệp một năm mới bình an và “vững tay chèo” nhé!</p>
+<p><img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExaGcyeDh3d2p3amMwa2k0YjkxaXQxZ2VmOGcxN2RrNGcyZ2J4a2t5ZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/LyywQOMnZW4FA8IDx9/giphy.gif" alt="2026"></p>
+
+                            </div>
+
+                            
+                                    <section class="post-tags">
+                                        <div>
+                                            <span>Tag(s):</span>
+                                            <span class="tag">
+                                                
+                                                    
+                                                        <a href="/tags/Career/"># Career</a>
+                                                        
+                                                        <a href="/tags/Life/"># Life</a>
+                                                        
+                                                        <a href="/tags/Personal/"># Personal</a>
+                                                        
+                                                            
+                                            </span>
+                                        </div>
+                                        <div>
+                                            <a href="javascript:window.history.back();">back</a>
+                                            <span>· </span>
+                                            <a href="/">home</a>
+                                        </div>
+                                    </section>
+                                    <section class="post-nav">
+                                        
+                                                
+                                                    <a class="next" rel="next" href="/2025/11/07/$1000-Dau-Tien-Tren-UpWork/">$1000 Đầu Tiên Trên UpWork</a>
+                                                    
+                                    </section>
+
+
+                        </article>
+</div>
+
+
+<script src="https://utteranc.es/client.js"
+        repo="KudoKhang/kudokhang.github.io"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <!-- <span>Kudo Khang</span> -->
+        <a href="https://github.com/KudoKhang" target="_blank" rel="noopener">Kudo Khang</a> 🎧 <span class="print"><a href="javascript:window.print()">PDF</a> </span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>
