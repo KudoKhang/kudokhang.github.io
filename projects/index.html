@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="vn">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Kudo Khang">
+
+
+
+
+
+<title>Khang&#39;s blogs</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+    <script src="/js/enhancements.js"></script>
+    
+    <script src="/js/homepage-animation.js"></script>
+    
+    <script src="/js/typing-effect.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@11.12.0/dist/mermaid.min.js"></script>
+    <script>
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'default',
+            securityLevel: 'loose',
+            
+            
+            
+        });
+    </script>
+
+
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                if (document.getElementById("mobile-toggle-theme")) {
+                    document.getElementById("mobile-toggle-theme").innerText = "Dark"
+                }
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                if (document.getElementById("mobile-toggle-theme")) {
+                    document.getElementById("mobile-toggle-theme").innerText = "Light"
+                }
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Khang&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/projects">Projects</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <button id="theme-toggle" type="button" class="toggleBtn" title="Toggle color theme" aria-label="Toggle color theme" aria-pressed="false"></button>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Khang&#39;s Blog</a><a id="mobile-toggle-theme">Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/projects">Projects</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+
+            <div class="main">
+                <div class="container">
+    <article class="post-wrap page">
+        
+        <h2 class="post-title"></h2>
+        
+        <section class="post-content">
+            <div class="projects-page">
+<section class="projects-hero project-reveal">
+<p class="about-kicker">Portfolio</p>
+<h1>Projects</h1>
+<p>A curated collection of production AI systems, research prototypes, freelance products, and personal tools I have built or led.</p>
+</section>
+<div class="project-filters project-reveal" aria-label="Project filters">
+<button class="project-filter is-active" type="button" data-project-filter="all">All Projects</button>
+<button class="project-filter" type="button" data-project-filter="research">Research</button>
+<button class="project-filter" type="button" data-project-filter="application">Application</button>
+<button class="project-filter" type="button" data-project-filter="engineering">Engineering</button>
+<button class="project-filter" type="button" data-project-filter="education">Education</button>
+</div>
+<section class="project-showcase" aria-label="Project list">
+<article class="showcase-card project-reveal" data-project-kind="application engineering">
+<div class="showcase-media media-video">
+<div class="camera-frame frame-left"></div>
+<div class="camera-frame frame-right"></div>
+<div class="tracking-box"></div>
+<div class="media-path"></div>
+</div>
+<div class="showcase-body">
+<div class="showcase-topline">
+<div class="showcase-badges">
+<span class="badge badge-application">Application</span>
+<span class="badge badge-featured">Featured</span>
+</div>
+<a class="showcase-icon-link" href="https://www.youtube.com/watch?v=ZNacjRtL9JQ" target="_blank" rel="noopener" aria-label="Open soccer match analysis demo">🚀</a>
+</div>
+<h2>Soccer Match Analysis</h2>
+<p>Cross-platform desktop application for football tactical analysis, built with video stitching, player tracking, and intelligent auto-focus.</p>
+<div class="showcase-meta">
+<span>Apr 2025 - Jun 2025</span>
+<span>UpWork freelance</span>
+</div>
+<div class="showcase-stack">
+<span>Computer Vision</span>
+<span>Video Stitching</span>
+<span>Object Detection</span>
+<span>GUI</span>
+</div>
+</div>
+</article>
+<article class="showcase-card project-reveal" data-project-kind="application engineering">
+<div class="showcase-media media-lecturehub">
+<div class="media-window">
+<span></span><span></span><span></span>
+</div>
+<div class="media-node node-a">OJ</div>
+<div class="media-node node-b">Search</div>
+<div class="media-node node-c">Solutions</div>
+</div>
+<div class="showcase-body">
+<div class="showcase-topline">
+<div class="showcase-badges">
+<span class="badge badge-application">Application</span>
+<span class="badge badge-featured">Featured</span>
+</div>
+<a class="showcase-icon-link" href="https://www.lecturehub.tech/" target="_blank" rel="noopener" aria-label="Open LectureHub website">🚀</a>
+</div>
+<h2>LectureHub</h2>
+<p>Full-stack web platform for looking up competitive programming solutions from multiple online judges, deployed as a production-ready product.</p>
+<div class="showcase-meta">
+<span>Jun 2025 - Present</span>
+<span>Personal project</span>
+</div>
+<div class="showcase-stack">
+<span>Full-stack</span>
+<span>AWS</span>
+<span>CI/CD</span>
+<span>Product</span>
+</div>
+</div>
+</article>
+<article class="showcase-card project-reveal" data-project-kind="application engineering">
+<div class="showcase-media media-tasks">
+<div class="task-panel panel-main"></div>
+<div class="task-panel panel-worker"></div>
+<div class="task-gpu">GPU</div>
+<div class="task-pulse"></div>
+</div>
+<div class="showcase-body">
+<div class="showcase-topline">
+<div class="showcase-badges">
+<span class="badge badge-engineering">Engineering</span>
+<span class="badge badge-application">Application</span>
+</div>
+</div>
+<h2>API Services for Long-Running Tasks</h2>
+<p>Microservices API platform for resource-intensive video generation tasks with immediate responses, fault tolerance, monitoring, and GPU cost optimization.</p>
+<div class="showcase-meta">
+<span>Sep 2023 - Jan 2025</span>
+<span>FTECH</span>
+</div>
+<div class="showcase-stack">
+<span>Microservices</span>
+<span>GPU</span>
+<span>Prometheus</span>
+<span>Grafana</span>
+<span>Sentry</span>
+</div>
+</div>
+</article>
+<article class="showcase-card project-reveal" data-project-kind="application research">
+<div class="showcase-media media-green">
+<div class="template-frame"></div>
+<div class="subject-cutout"></div>
+<div class="green-screen"></div>
+</div>
+<div class="showcase-body">
+<div class="showcase-topline">
+<div class="showcase-badges">
+<span class="badge badge-application">Application</span>
+<span class="badge badge-research">Research</span>
+</div>
+</div>
+<h2>Automatic Image and Video Merging</h2>
+<p>Deep learning and image processing module for automatically merging images and videos into templates, including green-screen video workflows.</p>
+<div class="showcase-meta">
+<span>Sep 2023 - Jan 2025</span>
+<span>FTECH</span>
+</div>
+<div class="showcase-stack">
+<span>Deep Learning</span>
+<span>MLOps</span>
+<span>Rolling Update</span>
+<span>Monitoring</span>
+</div>
+</div>
+</article>
+<article class="showcase-card project-reveal" data-project-kind="application engineering">
+<div class="showcase-media media-rag">
+<div class="rag-core">RAG</div>
+<div class="rag-doc doc-one">Problem</div>
+<div class="rag-doc doc-two">Code</div>
+<div class="rag-doc doc-three">Solution</div>
+</div>
+<div class="showcase-body">
+<div class="showcase-topline">
+<div class="showcase-badges">
+<span class="badge badge-application">Application</span>
+<span class="badge badge-engineering">Engineering</span>
+</div>
+<a class="showcase-icon-link" href="https://github.com/LectureHubTeam/lecturehub-chatbox" target="_blank" rel="noopener" aria-label="Open LectureHub chatbot repository">🚀</a>
+</div>
+<h2>Advanced Q&amp;A Chatbot</h2>
+<p>RAG-based chatbot for in-depth conversational queries about programming problems, using a pre-computed vector database to reduce hallucinations.</p>
+<div class="showcase-meta">
+<span>LectureHub feature</span>
+<span>PoC</span>
+</div>
+<div class="showcase-stack">
+<span>RAG</span>
+<span>Vector DB</span>
+<span>LLM</span>
+<span>Retrieval</span>
+</div>
+</div>
+</article>
+<article class="showcase-card project-reveal" data-project-kind="application engineering">
+<div class="showcase-media media-agent">
+<div class="agent-terminal"></div>
+<div class="agent-rank">#1</div>
+<div class="agent-line line-one"></div>
+<div class="agent-line line-two"></div>
+</div>
+<div class="showcase-body">
+<div class="showcase-topline">
+<div class="showcase-badges">
+<span class="badge badge-application">Application</span>
+<span class="badge badge-engineering">Engineering</span>
+</div>
+<a class="showcase-icon-link" href="https://github.com/LectureHubTeam/codemath-solver" target="_blank" rel="noopener" aria-label="Open CodeMath Solver repository">🚀</a>
+</div>
+<h2>CodeMath Solver</h2>
+<p>Autonomous problem-solving agent for programming challenges, built with a multi-stage prompt engineering framework and Selenium automation.</p>
+<div class="showcase-meta">
+<span>Apr 2025 - Present</span>
+<span>Personal project</span>
+</div>
+<div class="showcase-stack">
+<span>LLM</span>
+<span>Prompt Engineering</span>
+<span>Selenium</span>
+<span>Automation</span>
+</div>
+</div>
+</article>
+<article class="showcase-card project-reveal" data-project-kind="education application">
+<div class="showcase-media media-education">
+<div class="lesson-card lesson-one">Scratch</div>
+<div class="lesson-card lesson-two">Python</div>
+<div class="trophy-mark">A+</div>
+</div>
+<div class="showcase-body">
+<div class="showcase-topline">
+<div class="showcase-badges">
+<span class="badge badge-education">Education</span>
+<span class="badge badge-application">Mentoring</span>
+</div>
+</div>
+<h2>Programming Educator &amp; Mentor</h2>
+<p>Programming curriculum for primary and secondary students, covering Scratch, Python, computational thinking, and competition preparation.</p>
+<div class="showcase-meta">
+<span>May 2024 - Present</span>
+<span>Freelance</span>
+</div>
+<div class="showcase-stack">
+<span>Python</span>
+<span>Scratch</span>
+<span>Algorithms</span>
+<span>Mentoring</span>
+</div>
+</div>
+</article>
+<article class="showcase-card project-reveal" data-project-kind="engineering application">
+<div class="showcase-media media-email">
+<div class="mail-card mail-one"></div>
+<div class="mail-card mail-two"></div>
+<div class="mail-server">API</div>
+</div>
+<div class="showcase-body">
+<div class="showcase-topline">
+<div class="showcase-badges">
+<span class="badge badge-engineering">Engineering</span>
+<span class="badge badge-application">Backend</span>
+</div>
+<a class="showcase-icon-link" href="https://github.com/KudoKhang/boom_mail" target="_blank" rel="noopener" aria-label="Open Boom Mail repository">🚀</a>
+</div>
+<h2>Boom Mail</h2>
+<p>Backend service for email automation with Python, MySQL, API design, and frontend integration requirements.</p>
+<div class="showcase-meta">
+<span>Dec 2022 - Jul 2023</span>
+<span>Freelance</span>
+</div>
+<div class="showcase-stack">
+<span>Python</span>
+<span>MySQL</span>
+<span>Backend</span>
+<span>API</span>
+</div>
+</div>
+</article>
+<article class="showcase-card project-reveal" data-project-kind="research application">
+<div class="showcase-media media-plate">
+<div class="factory-line"></div>
+<div class="plate-card">51A-2022</div>
+<div class="scan-line"></div>
+</div>
+<div class="showcase-body">
+<div class="showcase-topline">
+<div class="showcase-badges">
+<span class="badge badge-research">Research</span>
+<span class="badge badge-application">Deployment</span>
+</div>
+<a class="showcase-icon-link" href="https://github.com/KudoKhang/LPR" target="_blank" rel="noopener" aria-label="Open License Plate Recognition repository">🚀</a>
+</div>
+<h2>License Plate Recognition</h2>
+<p>Factory-deployed license plate recognition system with Dockerized API, 97% private-test accuracy, and ATiGB 2022 publication.</p>
+<div class="showcase-meta">
+<span>Jul 2022 - Sep 2022</span>
+<span>Freelance</span>
+</div>
+<div class="showcase-stack">
+<span>CNN</span>
+<span>OCR</span>
+<span>Docker</span>
+<span>API</span>
+</div>
+</div>
+</article>
+<article class="showcase-card project-reveal" data-project-kind="research engineering">
+<div class="showcase-media media-classifier">
+<div class="orange-item orange-one"></div>
+<div class="orange-item orange-two"></div>
+<div class="robot-arm arm-left"></div>
+<div class="robot-arm arm-right"></div>
+</div>
+<div class="showcase-body">
+<div class="showcase-topline">
+<div class="showcase-badges">
+<span class="badge badge-research">Research</span>
+<span class="badge badge-engineering">Hardware</span>
+</div>
+</div>
+<h2>Product Classification System</h2>
+<p>Graduation thesis on orange classification using deep learning, Jetson Nano video processing, conveyor design, and robotic arms.</p>
+<div class="showcase-meta">
+<span>May 2022</span>
+<span>University project</span>
+</div>
+<div class="showcase-stack">
+<span>Jetson Nano</span>
+<span>Deep Learning</span>
+<span>Robotics</span>
+<span>A+ Thesis</span>
+</div>
+</div>
+</article>
+</section>
+<div class="project-modal" id="project-modal" aria-hidden="true">
+<div class="project-modal-backdrop" data-project-modal-close></div>
+<section class="project-modal-panel" role="dialog" aria-modal="true" aria-labelledby="project-modal-title">
+<button class="project-modal-close" type="button" data-project-modal-close aria-label="Close project details">×</button>
+<p class="project-modal-kicker" id="project-modal-kicker"></p>
+<h2 id="project-modal-title"></h2>
+<p class="project-modal-summary" id="project-modal-summary"></p>
+<div class="project-modal-meta" id="project-modal-meta"></div>
+<div class="project-modal-grid">
+<div>
+<h3>Highlights</h3>
+<ul class="project-modal-list" id="project-modal-highlights"></ul>
+</div>
+<div>
+<h3>Stack</h3>
+<div class="project-modal-stack" id="project-modal-stack"></div>
+<a class="project-modal-link" id="project-modal-link" href="#" target="_blank" rel="noopener">Open link</a>
+</div>
+</div>
+</section>
+</div>
+</div>
+
+        </section>
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <!-- <span>Kudo Khang</span> -->
+        <a href="https://github.com/KudoKhang" target="_blank" rel="noopener">Kudo Khang</a> 🎧 <span class="print"><a href="javascript:window.print()">PDF</a> </span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>
