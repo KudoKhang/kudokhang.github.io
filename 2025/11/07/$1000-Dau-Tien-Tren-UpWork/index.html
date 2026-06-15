@@ -65,7 +65,7 @@
     </script>
 
 
-<meta name="generator" content="Hexo 6.2.0"></head>
+<meta name="generator" content="Hexo 8.1.2"></head>
 
 <body>
     <script>
@@ -296,7 +296,7 @@
 <p>Khi đã biết bài toán chắc chắn có nghiệm rồi thì bắt tay vào giải thôi.</p>
 <p>Đầu tiên mình thử triển khai khai chức năng image stitching, chỉ khoảng 30 - 1 tiếng mình đã triển khai xong (nếu bạn có thắc mắc tiếp là sao mà nhanh vậy thì mình trả lời luôn là trên mạng có nhiều sample code và các thuật toán được hỗ trợ trong OpenCV rồi nên mình lụm về chạy thui 🐣). Code chạy được rồi đó, nhưng làm sao để điều chỉnh kích thước output, khả năng tìm điểm chung, thực hiện ghép nối… điều bắt buộc mình phải tìm hiểu, đi sâu vào giá trị, ý nghĩa của từng tham số.</p>
 <p>Sau nhiều bài viết, video giải thích, mình dừng lại và tập trung vào series giải thích Image Stitching của thầy Shree Nayar, đúng như mô tả của kênh nội dung thầy truyền tải luôn theo nguyên tắc First Principles, tức là sẽ đi từ bản chất cốt lõi của vấn đề đi lên, với 12 video trong series đã giúp mình hiểu một cách sâu sắc về bài toán image stitching cũng như các phép biến đổi ảnh.</p>
-<p>Link series Image Stitching: <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=J1DwQzab6Jg&amp;list=PL2zRqk16wsdp8KbDfHKvPYNGF2L-zQASc">https://www.youtube.com/watch?v=J1DwQzab6Jg&amp;list=PL2zRqk16wsdp8KbDfHKvPYNGF2L-zQASc</a></p>
+<p>Link series Image Stitching: <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=J1DwQzab6Jg&list=PL2zRqk16wsdp8KbDfHKvPYNGF2L-zQASc">https://www.youtube.com/watch?v=J1DwQzab6Jg&amp;list=PL2zRqk16wsdp8KbDfHKvPYNGF2L-zQASc</a></p>
 <p>Sau khi đã giải quyết được bài toán cốt lõi image stitching rồi việc triển khai cho video chắc chỉ cần đọc từ frame –&gt; xử lý –&gt; lưu lại, nhưng nếu làm như vậy sẽ gặp ngay vấn đề: output cà giật cà giật qua từng frame. Nguyên nhân là mỗi lần xử lý thuật toán sẽ dự vào 2 ảnh input để tính toán ra ma trận biến đổi mới, mà mỗi frame mỗi khác nên ma trận cũng khác theo, bởi vậy video về tổng thể thì có vẻ oke nhưng nó đang bị liên tục xê dịch một chút so với frame liền kề, vì vậy video output nó giật giật mà nó tiền đình mà nó chóng mặt lắm.</p>
 <p>Lúc này mình giải định, do góc quay camera là cố định, sân bóng cũng cố định nên sẽ tồn lại một ma trận biến đổi M cố định có thể sử dụng cho toàn bộ bước ghép nối. Kết quả thật tuyệt vời, output như đúng như mong đợi. Mình đóng gói code, quay demo và viết report gửi cho khách, họ rất vui và bày tỏ sự ấn tượng với kết quả và tiến độ thực hiện, tuy nhiên họ muốn test trên nhiều video input hơn.</p>
 <p>Và bùm… sau khi test thêm đã phát hiện một lỗi về chất lượng khá nghiêm trọng, phần ghép nối ở giữa không thật sự được matching với nhau 1 cách hợp lý. Đây đúng là một vấn đề lớn, mình khá hoảng vì chưa hình dung được nguyên, nhưng rất may mắn là khách hàng họ đã nghiên cứu bài toán này khoảng 1 năm và họ có một giả thiết cho vấn đề này. Vậy vấn đề này là gì?</p>
